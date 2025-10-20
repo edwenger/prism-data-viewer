@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRISM Household Viewer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .sites {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .site-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .site-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .site-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .site-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .legend {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .legend h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .legend-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+        }
+        .legend-symbol {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .attribution {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 0.9em;
+            color: #666;
+        }
+        .attribution h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>PRISM Household Malaria Viewer</h1>
+        <div class="description">
+            <p>
+                Interactive visualization of household-level malaria surveillance data from the
+                <strong>PRISM (Program for Resistance, Immunology, Surveillance, and Modeling of Malaria)</strong>
+                cohort study in Uganda (2011-2017).
+            </p>
+            <p>
+                Each visualization shows longitudinal malaria test results for all members of multi-person households,
+                with one row per individual. Use the dropdown menu to navigate between households, which are sorted
+                by total number of infection events.
+            </p>
+        </div>
+    </div>
+
+    <div class="sites">
+        <div class="site-card">
+            <div class="site-name">Nagongera</div>
+            <div class="site-description">
+                High transmission site (Tororo district)<br>
+                105 households
+            </div>
+            <a href="nagongera.html" class="btn">View Nagongera</a>
+        </div>
+
+        <div class="site-card">
+            <div class="site-name">Walukuba</div>
+            <div class="site-description">
+                Medium transmission site (Jinja district)<br>
+                99 households
+            </div>
+            <a href="walukuba.html" class="btn">View Walukuba</a>
+        </div>
+
+        <div class="site-card">
+            <div class="site-name">Kihihi</div>
+            <div class="site-description">
+                Low transmission site (Kanungu district)<br>
+                101 households
+            </div>
+            <a href="kihihi.html" class="btn">View Kihihi</a>
+        </div>
+    </div>
+
+    <div class="legend">
+        <h2>Visual Legend</h2>
+        <div class="legend-items">
+            <div class="legend-item">
+                <span class="legend-symbol" style="background-color: darkgray; width: 8px; height: 8px;"></span>
+                <span>All visits</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-symbol" style="background-color: firebrick; width: 8px; height: 8px;"></span>
+                <span>Fever visits</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-symbol" style="background-color: white; border: 1px solid darkgray;"></span>
+                <span>Microscopy/LAMP negative</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-symbol" style="background: linear-gradient(to right, #ffffb2, #f03b20);"></span>
+                <span>Parasite positive (color/size = density)</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-symbol" style="background-color: rgba(255, 237, 160, 0.6); border: 1px solid darkgray;"></span>
+                <span>LAMP positive (submicroscopic)</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-symbol" style="background-color: white; border: 2px solid olive;"></span>
+                <span>Gametocytes detected</span>
+            </div>
+        </div>
+        <p style="margin-top: 15px; color: #666;">
+            <strong>Y-axis:</strong> Each row represents one individual, labeled with age (years) and gender (M/F).
+            Individuals are sorted by age within each household.<br>
+            <strong>Hover:</strong> Hover over markers for detailed information.
+        </p>
+    </div>
+
+    <div class="attribution">
+        <h3>Data Attribution</h3>
+        <p>
+            <strong>Dataset:</strong> PRISM ICEMR Cohort<br>
+            <strong>Source:</strong> ClinEpiDB (Dataset ID: DS_0ad509829e)<br>
+            <strong>Version:</strong> Release 21 (2022-MAR-03)<br>
+            <strong>Citation:</strong> Grant Dorsey, Moses Kamya, Bryan Greenhouse, et al. Dataset: PRISM ICEMR Cohort. ClinEpiDB. 03 March 2022, Release 21.
+        </p>
+        <p>
+            The PRISM cohort study was conducted as part of the East Africa International Center of Excellence
+            for Malaria Research (ICEMR), supported by NIAID (U19AI089674).
+        </p>
+        <p>
+            Data accessed from ClinEpiDB is public and available without login.
+        </p>
+        <p style="margin-bottom: 0;">
+            <a href="https://clinepidb.org/ce/app/record/dataset/DS_0ad509829e" target="_blank">View dataset on ClinEpiDB</a> |
+            <a href="https://github.com/edwenger/prism-data-viewer" target="_blank">GitHub Repository</a>
+        </p>
+    </div>
+</body>
+</html>
