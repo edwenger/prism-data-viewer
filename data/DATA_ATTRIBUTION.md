@@ -41,8 +41,43 @@ Derived/processed data files:
 - `prism_cleaned_nagongera.csv` - Processed data for Nagongera site
 - `prism_cleaned_walukuba.csv` - Processed data for Walukuba site
 
-### Terms of Use
+---
 
-Data accessed from ClinEpiDB is made available to the research community for non-commercial use. Users should cite the dataset using the citation provided above when publishing results derived from this data.
+## PRISM2 ICEMR Cohort Data
 
-For questions about data use and permissions, please refer to the [ClinEpiDB website](https://clinepidb.org) or contact the PRISM study investigators.
+The PRISM2 data files in this directory were downloaded from ClinEpiDB on February 5, 2026.
+
+### Data Accessibility
+
+Public - Data downloads for this study are public. Data are available without logging in.
+
+### Citation
+
+Grant Dorsey, Moses Kamya, Bryan Greenhouse, et al. Dataset: PRISM2 ICEMR Cohort. ClinEpiDB. 03 May 2023, Release 28 (https://clinepidb.org/ce/app/workspace/analyses/DS_51b40fe2e2/new)
+
+### Data Source
+
+- **Dataset**: PRISM2 ICEMR Cohort (Program for Resistance, Immunology, Surveillance, and Modeling of Malaria in Uganda)
+- **ClinEpiDB Dataset ID**: DS_51b40fe2e2
+- **Access URL**: https://clinepidb.org/ce/app/workspace/analyses/DS_51b40fe2e2/new
+- **Data Release**: Release 28 (May 2023)
+- **Download Date**: February 5, 2026
+
+### Files
+
+Original data files downloaded from ClinEpiDB:
+- `PRISM2_cohort_Households.txt` - Household-level data
+- `PRISM2_cohort_Household_repeated_measures.txt` - Repeated household entomology collections
+- `PRISM2_cohort_Participants.txt` - Participant demographic data
+- `PRISM2_cohort_Participant_repeated_measures.txt` - Repeated participant observations
+- `PRISM2_cohort_Samples.txt` - Sample-level data
+- `PRISM2_cohort_OntologyMetadata.txt` - Variable ontology mappings
+- `rls0028_PRISM2_cohort_Download_Files_README.txt` - Original ClinEpiDB README
+
+---
+
+## Terms of Use
+
+Data accessed from ClinEpiDB is made available to the research community for non-commercial use. Users should cite the datasets using the citations provided above when publishing results derived from this data.
+
+For questions about data use and permissions, please refer to the [ClinEpiDB website](https://clinepidb.org) or contact the PRISM/PRISM2 study investigators.

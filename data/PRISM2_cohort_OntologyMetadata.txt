@@ -1,0 +1,287 @@
+iri	label	type	parentlabel	category	definition	min	max	average	median	upper_quartile	lower_quartile	number_distinct_values	distinct_values	variable	replaces
+OGMS_0000090	Treatment		Participant	Participant repeated measure											
+EUPATH_0000310	Observation details		Participant	Participant repeated measure											
+EUPATH_0000308	Hospitalization		Participant	Participant repeated measure											
+OMRSE_00000142	Travel details		Participant	Participant repeated measure											EUPATH_0000340
+EUPATH_0020254	Complicated malaria signs		Signs and symptoms	Participant repeated measure											
+EUPATH_0020184	Severe malaria signs		Signs and symptoms	Participant repeated measure											
+EUPATH_0021097	Personal vector intervention		Participant	Participant repeated measure											
+OBI_0002926	CDC light trap		Mosquito trap	Participant repeated measure											
+OBI_0002920	Mosquito trap		Participant	Participant repeated measure											
+OGMS_0000015	Clinical history		Participant	Participant repeated measure											EUPATH_0021098
+EUPATH_0000649	Anthropometry		Participant	Participant repeated measure											
+EUPATH_0022066	Activity		Participant	Participant repeated measure											
+EUPATH_0042004	Pregnancy		Obstetrics	Participant repeated measure											
+EUPATH_0010981	Demographics		Participant	Participant repeated measure											
+EUPATH_0021002	Symptoms		Signs and symptoms	Participant repeated measure											
+EUPATH_0000309	Signs and symptoms		Participant	Participant repeated measure											
+EUPATH_0042002	Obstetrics		Participant	Participant repeated measure											
+OGMS_0000083	Physical examination		Participant	Participant repeated measure											
+OGMS_0000073	Diagnosis		Participant	Participant repeated measure											
+BFO_0000015	Observation type	string	Observation details	Participant repeated measure	Information about clincial history, anthropometry, vital signs, symptoms, samples, and treatment were collected at enrollment as well as routine and non-routine visits to the cinic. Information about sleeping habits and mosquito traps were collected at entomology visits to the participant's home, which occured every 2 weeks.							4	["Enrollment","Entomology","Non-routine","Routine"]	["visittype"]	
+CMO_0000289	Respiratory rate	integer	Physical examination	Participant repeated measure		18	34	21.6666666666667	20	20	18	3	["18","20","34"]	["resprate"]	
+EFO_0004326	Heart rate	integer	Physical examination	Participant repeated measure		59	110	78.9473684210526	78	95	62	14		["heartrate"]	
+EUPATH_0000058	Antimalarial medication	string	Treatment	Participant repeated measure								4	["Artemether/lumefantrine - uncomplicated malaria and >14 days since last episode","Not applicable - no malaria diagnosed today","Quinine or IV artesunate - Complicated malaria and <=14 days since treatment with artemether/lumefantrine","Quinine or IV artesunate - Complicated malaria and >14 days since last episode"]	["malaria"]	EUPATH_0000740
+EUPATH_0000059	Non-malaria medication	string	Treatment	Participant repeated measure								86	["Amoxicillin caps (250 mg)","Amoxicillin syrup (125 mg/ 5 ml)","Ampicillin","Ampiclox caps (500 mg)","Ampiclox syrup (250 mg/ 5 ml)","Aprinox (Bendrofluazide)","Artenum/Artemether (25mg)","Artesunate","Atenolol","Azithromycin","Benzathine penicillin injection (2.4 mu)","Benzyl Penicillin injecion","Betamethasone  skin cream (1%)","Betamethasone/neomycin eye drops","Bisacodyl tablets (5 mg)","Bromocriptine","Burnem cream","Calamine lotion","Cefixime","Ceftriaxone injection (1 g)","Cefuroxime","Cephalexin syrup (125mg/5ml)","Cetrizine tablets (10 mg)","Chloramphenicol eye/ear drops (1%)","Chloramphenicol injection","Chlorpheniramine tablets (4 mg)","Ciprofloxacin tablets (500 mg)","Clotrimazole mouth paint","Clotrimazole Pessary (100 mg)","Clotrimazole skin cream (1%)","Coartem (Artemether-lumefantrine)","Cough expectorant","Cough linctus","Dexamethasone","Dexona eye/ear drops","Dextrose solution (5%)","Dextrose solution (50%)","Diclofenac gel","Diclofenac injection (75mg/2ml)","Diclofenac tablets (50 mg)","Diphenhydramine tablets","Doxycycline","ERHZ - ethambutol/rifampicin/isoniazid/pyrazinamide","Erythromycin tablets (250 mg)","Ferrous sulfate/Folic acid","Fluconazole caps (50, 100, 150 mg)","Folic Acid tablets (1 mg)","Gentamicin eye/ear drops","Gentamicin injection (80 mg/ 2 ml)","Griseofulvin tablets (500 mg)","Haemoforte syrup","Hydrocortisone injection","Ibuprofen","Imipramine tablets (50 mg)","Ketoconazole","Lasix","Magnesium sulfate, injectable","Magnesium triscilicate suspension","Magnesium triscilicate tablets (120 mg)","Mebendazole tablets (100 mg)","Metoclopramide tablets (10 mg)","Metronidazole injection","Metronidazole syrup (200mg/5mL)","Metronidazole tablets (200 mg)","Multivitamin","Nifedipine","Nitrofurantoin","Normal saline solution (0.90%)","Omeprazole (20mg)","Oracure gel","ORS","Paracetamol","Piritex syrup","Prednisolone tablets (5 mg)","Promethazine tablets (25 mg)","Quinine injection (300 mg/ 2 ml)","Ringer's lactate solution","Salbutamol tablets (4 mg)","Tenofovir/Lamivudine (TDF/3TC) (300/300)","Tetracycline eye ointment","Tramadol","Trimethoprim-Sulfamethoxazole (TS)","Vitamin A caps (200000 iu)","Vitamin B complex","Vitamin C / Ascorbic Acid tablets (300 mg)","Zinc gluconate"]	["med6code","med7code","med5code","med4code","med8code","med3code","med1code","med2code"]	
+EUPATH_0000090	Malaria diagnosis	string	Diagnosis	Participant repeated measure	Study participants found to have a fever (tympanic temperature > 38.0 C) or a history of fever in the previous 24 hours at the time of any clinic visit had a thick blood smear read immediately. If the thick blood smear was positive by light microscopy, then the patient was diagnosed with malaria and managed according to national guidelines							2	["No","Yes"]	["anymalaria"]	
+EUPATH_0000097	Febrile	string	Symptoms	Participant repeated measure								2	["No","Yes"]	["febrile"]	
+EUPATH_0000100	Subjective fever	string	Symptoms	Participant repeated measure								2	["No","Yes"]	["fever"]	
+EUPATH_0000154	Abdominal pain duration	integer	Signs and symptoms	Participant repeated measure		1	14	3.16014234875445	3	4	2	8	["1","2","3","4","5","6","7","14"]	["apainduration"]	
+EUPATH_0000155	Anorexia duration	integer	Signs and symptoms	Participant repeated measure		1	14	2.64220183486239	2	4	2	8	["1","2","3","4","5","6","7","14"]	["aduration"]	
+EUPATH_0000156	Cough duration	integer	Signs and symptoms	Participant repeated measure		1	31	3.27389951089373	3	4	2	12		["cduration"]	
+EUPATH_0000157	Diarrhea duration	integer	Signs and symptoms	Participant repeated measure		1	8	2.21153846153846	2	2.5	2	7	["1","2","3","4","5","7","8"]	["dduration"]	
+EUPATH_0000158	Fatigue duration	integer	Signs and symptoms	Participant repeated measure		1	7	1.81560283687943	2	2	1	5	["1","2","3","4","7"]	["fmduration"]	
+EUPATH_0000159	Headache duration	integer	Signs and symptoms	Participant repeated measure		1	7	2.2	2	3	2	7	["1","2","3","4","5","6","7"]	["hduration"]	
+EUPATH_0000160	Jaundice duration	integer	Signs and symptoms	Participant repeated measure		1	1	1	1			1	["1"]	["jduration"]	
+EUPATH_0000161	Joint pains duration	integer	Signs and symptoms	Participant repeated measure		1	14	2.39130434782609	2	3	2	8	["1","2","3","4","5","6","7","14"]	["djointpains"]	
+EUPATH_0000162	Muscle aches duration	integer	Signs and symptoms	Participant repeated measure		1	5	2.24528301886792	2	3	2	5	["1","2","3","4","5"]	["mduration"]	
+EUPATH_0000163	Seizures duration	integer	Signs and symptoms	Participant repeated measure		1	1	1	1			1	["1"]	["sduration"]	
+EUPATH_0000164	Subjective fever duration	integer	Signs and symptoms	Participant repeated measure		1	5	1.6023102310231	2	2	1	5	["1","2","3","4","5"]	["fduration"]	
+EUPATH_0000165	Vomiting duration	integer	Signs and symptoms	Participant repeated measure		1	4	1.33333333333333	1	2	1	4	["1","2","3","4"]	["vduration"]	
+EUPATH_0000191	Time since enrollment	integer	Observation details	Participant repeated measure		0	757	353.170490906605	343	532	168	733		["n"]	
+EUPATH_0000216	ITN last night	string	Personal vector intervention	Participant repeated measure	Asked at clinic visits							2	["No","Yes"]	["itnlastnight"]	
+EUPATH_0000317	Other diagnosis	string	Diagnosis	Participant repeated measure								84	["Abdominal pain - unspecified","Abscess","Anaemia - general","Arthritis","Asthma exacerbation","Bacterial skin infection","Bacterial vaginosis","Balanitis","Burns","Candidiasis - perianal","Candidiasis - vaginal","Carbuncle/furuncle","Cellulitis","Chicken pox","Common cold / flu","Conjunctivitis","Constipation","Dehydration","Dental abscess","Dental caries","Dermatitis - unspecified","Diabetes mellitus","Diarrhea - acute","Dysentery","Dysmenorrhagia","Dyspepsia / gastritis","Fever without source (FWS)","Folliculitis","Foreign body","Fungal skin infection","Gastroenteritis","Glossitis","Headache - unspecified","Helminth infection","Hepatitis","Hepatosplenomegaly","Hernia - inguinal","Hernia - others (femoral, hiatal)","Herpes Simplex - orolabial","Hypertension","Hypoglycaemia","Incomplete abortion","Liver disease","Lymphadenitis","Malaria","Mastitis","Measles","Measles-like illness","Not Applicable","Oral ulcers - single episode","Otitis externa","Otitis media - nonsuppurative","Otitis media - suppurative","Pain","Paralysis","Pelvic Inflammatory Disease","Pelvic inflammatory disease","Peptic ulcer disease","Periodontitis - unspecified","Pharyngitis","Pneumonia","Pneumonia - severe","Poisoning","Postpartum hemorrhage","Pruritis","Pustular skin infection","Respiratory failure","Soft tissue injury","Splenomegaly","Stye","Syphillis","Threatened abortion","Tinea capitis","Tinea Capitis","Tonsillitis","Torticolis","Trichomonas","Tuberculosis - pulmonary","Upper respiratory tract infection (URTI)","Urinary tract infection","Viral exanthem (not otherwise specified)","Visceral larva migrans","Vulvovaginitis, unexplained","Wound"]	["dx5code","dx1code","dx2code","dx7code","dx8code","dx3code","dx4code","dx6code"]	
+EUPATH_0000319	Hospital admission date	date	Hospitalization	Participant repeated measure		2017-12-08	2019-10-22	2018-08-31	2018-07-24	2018-11-13	2018-04-26	22		["hospdate"]	
+EUPATH_0000338	Malaria diagnosis and parasite status	string	Diagnosis	Participant repeated measure	Derived variable based on 'Malaria diagnosis' (anymalaria) and 'Plasmodium asexual stages, by microscopy' (BSdich). If no malaria was diagnosed, but parasites were identified by blood smear, the participant has 'Asymptomatic parasitemia'. If no malaria was diagnosed and no parasites were seen on blood smear, the participant has 'Negative blood smear'. If a blood smear wasn't done, then the participant has 'Blood smear not indicated'							4	["Blood smear not indicated","Negative blood smear","Asymptomatic parasitemia","Malaria"]	["malariacat"]	
+EUPATH_0000428	Treated with antimalarials	string	Clinical history	Participant repeated measure								2	["No","Yes"]	["osantimalarial"]	EUPATH_0020168
+EUPATH_0000638	Diagnosis at hospitalization	string	Hospitalization	Participant repeated measure								20	["Burns","Chest infection","Complicated malaria","Dehydration","Dehydration and severe vomiting","Dehydration, severe vomiting","Excerbation of gastritis, gastroenteritis","Gastroenteritis with severe abdominal pain","Hypoglycaemia","Measles, pnuemonia,dehydration","Pneumonia","Pv bleeding","Pv bleeding, fever, lap","Respiratory failure","Severe gastritis","Severe malaria with vomiting and lethargy","Severe pneumonia","Severe pneumonia, difficulty in breathing","Severe pv bleeding","Swollen and tender right knee- unable to use"]	["roa"]	
+EUPATH_0004991	Observation date	date	Observation details	Participant repeated measure		2017-09-27	2019-11-06	2018-10-23	2018-10-21	2019-04-25	2018-04-25	764		["date"]	EUPATH_0000091
+EUPATH_0010075	Height	integer	Anthropometry	Participant repeated measure		12	192	135.787131831785	138	163	111	135		["height"]	
+EUPATH_0010367	Age group	string	Demographics	Participant repeated measure								3	["<5 years","5-15 years","16 years or older"]	["agecat"]	EUPATH_0020222
+EUPATH_0010995	Hospitalized	string	Hospitalization	Participant repeated measure								1	["Yes"]	["hospitalized"]	
+EUPATH_0020006	Convulsions (1-2) over 24 hours	string	Complicated malaria signs	Participant repeated measure								1	["No"]	["convulsions"]	
+EUPATH_0020057	Celebral malaria	string	Severe malaria signs	Participant repeated measure								1	["No"]	["cerebral"]	
+EUPATH_0020059	Child bearing age	string	Obstetrics	Participant repeated measure	Only assessed for women							2	["Not a woman of childbearing age","Woman of childbearing age"]	["childbearing"]	
+EUPATH_0020102	Lethargy	string	Complicated malaria signs	Participant repeated measure								2	["No","Yes"]	["lethargy"]	
+EUPATH_0020104	LLIN observed	string	Personal vector intervention	Participant repeated measure	Interviewer observed a long-lasting insecticide treated net hanging over the sleeping area							3	["Missing data","No","Yes"]	["observed"]	
+EUPATH_0020109	Convulsions (>3) over 24 hours	string	Severe malaria signs	Participant repeated measure								1	["No"]	["multipleconv"]	
+EUPATH_0020122	Total female Anopheles count	integer	CDC light trap	Participant repeated measure	Total number of female anopheles caught in light trap	0	169	2.17707967707968	0	1	0	69		["totalanopheles"]	
+EUPATH_0020132	Other health facility antimalarial dose	string	Clinical history	Participant repeated measure		1	1	1	1			3	["1","120 mg","180 mg"]	["dose1"]	
+EUPATH_0020133	Other health facility antimalarial treatment	string	Clinical history	Participant repeated measure								3	["Artemether-lumefantrine","IM quinine","IV artesunate"]	["antimalarial1"]	
+EUPATH_0020134	Other health facility blood smear done	string	Clinical history	Participant repeated measure								2	["No","Yes"]	["bsdone1"]	
+EUPATH_0020135	Other health facility diagnosis	string	Clinical history	Participant repeated measure								14	["Abortion","Bronchitis","Dehydration","Diarrhoea","Ear infection","Fever","Headache","Malaria","Pain in right clavicle","Pneumonia","Puncture wound","Soft tissue injury","Tinea pedis","Uti"]	["diagnosis1"]	
+EUPATH_0020136	Other health facility last antimalarial date	date	Clinical history	Participant repeated measure		2017-11-26	2019-09-14	2018-06-09	2018-03-19	2018-05-14	2018-01-05	5	["2017-11-26","2018-01-05","2018-03-19","2018-05-14","2019-09-14"]	["lgdate1"]	
+EUPATH_0020137	Other health facility visit date	date	Clinical history	Participant repeated measure		2017-10-23	2019-09-21	2018-10-19	2018-10-26	2019-04-28	2018-05-17	31		["cdate1"]	
+EUPATH_0020142	Other severe disease	string	Severe malaria signs	Participant repeated measure								1	["No"]	["other"]	
+EUPATH_0020163	Out of bed time	number	Activity	Participant repeated measure	Asked when setting light traps at participant's home during entomology observations.	0	13.333	10.5351061279637	10	11.667	10	10	["0.000","8.333","8.833","9.300","10.000","10.100","10.500","11.667","12.167","13.333"]	["timeoutofbed"]	
+EUPATH_0020169	Sleeping area ID	string	Activity	Participant repeated measure	Asked when setting light traps at participant's home during entomology observations.							4	["A","B","C","Missing data"]	["sleepingarea"]	
+EUPATH_0020170	Sleeping room number	integer	Activity	Participant repeated measure	Asked when setting light traps at participant's home during entomology observations.	1	4	1.54295906381868	1	2	1	4	["1","2","3","4"]	["roomnumi"]	
+EUPATH_0020181	Traveled since last clinic visit	string	Travel details	Participant repeated measure								2	["No","Yes"]	["travelout"]	
+EUPATH_0020182	Severe anemia (hemoglobin <5 mg/dL)	string	Severe malaria signs	Participant repeated measure								1	["No"]	["severeanemia"]	
+EUPATH_0020191	Unable to breastfeed or drink	string	Complicated malaria signs	Participant repeated measure								1	["No"]	["unabletodrink"]	
+EUPATH_0020192	Unable to sit	string	Complicated malaria signs	Participant repeated measure								2	["No","Yes"]	["unabletosit"]	
+EUPATH_0020202	Vomiting everything	string	Complicated malaria signs	Participant repeated measure								2	["No","Yes"]	["vomitingc"]	
+EUPATH_0020236	Malaria follow up day	integer	Diagnosis	Participant repeated measure		0	14	6.98076923076923	7	11	3	15		["malariafuday"]	
+EUPATH_0020252	Respiratory distress	string	Severe malaria signs	Participant repeated measure								1	["No"]	["distress"]	
+EUPATH_0020256	Jaundice	string	Severe malaria signs	Participant repeated measure								2	["No","Yes"]	["jaundicec"]	
+EUPATH_0020257	LLIN last night	string	Personal vector intervention	Participant repeated measure	Asked when setting light traps at participant?s home							3	["Missing data","No","Yes"]	["llin"]	
+EUPATH_0020260	Mosquitoes tested for sporozoites count	integer	CDC light trap	Participant repeated measure	Number of Anopheles female Mosquitoes that came from the room where the participant was sleeping and were tested for sporozoites.	0	169	2.17655317655318	0	1	0	69		["sporozoitetested"]	
+EUPATH_0020261	Mosquitoes with sporozoites count	integer	CDC light trap	Participant repeated measure	Number of Anopheles female Mosquitoes that came from the room where the participant was sleeping and were found to have sporozoites.	0	1	0.00078985475449	0	0	0	2	["0","1"]	["sporozoitepositive"]	
+EUPATH_0020268	Slept in dwelling last night	string	Activity	Participant repeated measure	Asked when collecting light traps at participant's home during entomology observations.							2	["No","Yes"]	["slept"]	
+EUPATH_0021086	Systolic blood pressure	integer	Physical examination	Participant repeated measure		92	165	120.764705882353	117	138	104	14		["sbp"]	
+EUPATH_0021087	Diastolic blood pressure	integer	Physical examination	Participant repeated measure		55	112	81	77	92	72	16		["dbp"]	
+EUPATH_0021099	Visited other health facility	string	Clinical history	Participant repeated measure								2	["No","Yes"]	["careoutside"]	
+EUPATH_0021100	Other health facility name	string	Clinical history	Participant repeated measure								9	["Clinic","Goria M. Centre","Home","Hospital","Kirewa","Maternity Nagongera Health Centre IV","Outreach","Pokongo Health Centre II","Tororo hospital"]	["wcaregiven1"]	
+HP_0000952	Jaundice	string	Symptoms	Participant repeated measure								3	["Cannot assess","No","Yes"]	["jaundice"]	
+HP_0002013	Vomiting	string	Symptoms	Participant repeated measure								2	["No","Yes"]	["vomiting"]	
+HP_0002014	Diarrhea	string	Symptoms	Participant repeated measure								2	["No","Yes"]	["diarrhea"]	DOID_13250
+HP_0002027	Abdominal pain	string	Symptoms	Participant repeated measure								3	["Cannot assess","No","Yes"]	["abdominalpain"]	
+HP_0002315	Headache	string	Symptoms	Participant repeated measure								3	["Cannot assess","No","Yes"]	["headache"]	
+HP_0002829	Joint pains	string	Symptoms	Participant repeated measure								3	["Cannot assess","No","Yes"]	["jointpains"]	SYMP_0000064
+HP_0003326	Muscle aches	string	Symptoms	Participant repeated measure								3	["Cannot assess","No","Yes"]	["muscleaches"]	HP_0003326
+IAO_0000414	Weight	number	Anthropometry	Participant repeated measure		4	86	32.5630953318114	27	49	16	93		["weight"]	EUPATH_0000732
+NCIT_C64593	Bed time	number	Activity	Participant repeated measure	Asked when setting light traps at participant's home during entomology observations.	0	23	20.8845622878036	21	21	20	15		["timetobed"]	
+NCIT_C69121	Trimester	string	Pregnancy	Participant repeated measure								3	["1st trimester","2nd trimester","3rd trimester"]	["trimister"]	
+OBI_0001169	Age	number	Demographics	Participant repeated measure		0.08	76.05	16.8955998906058	9.7	28	4.74	5796		["ageyrs"]	EUPATH_0000113
+SYMP_0000124	Seizures	string	Symptoms	Participant repeated measure								3	["Cannot assess","No","Yes"]	["seizure"]	
+SYMP_0000523	Anorexia	string	Symptoms	Participant repeated measure								3	["Cannot assess","No","Yes"]	["anorexia"]	
+SYMP_0000614	Cough	string	Symptoms	Participant repeated measure								3	["Cannot assess","No","Yes"]	["cough"]	
+SYMP_0019177	Fatigue	string	Symptoms	Participant repeated measure								3	["Cannot assess","No","Yes"]	["fatigue"]	
+UBERON_0009097	Pregnant	string	Obstetrics	Participant repeated measure								2	["Not pregnant","Pregnant"]	["pregnant"]	
+OBI_0003073	Temperature	number	Physical examination	Participant repeated measure		34.5	40.4	36.6712964222555	36.6	36.9	36.3	54		["temperature"]	EUPATH_0000110
+EUPATH_0020267	Incident malaria	string	Diagnosis	Participant repeated measure								2	["No","Yes"]	["incidentmalaria"]	EUPATH_0000036
+EUPATH_0020067	Dead mosquitoes count	integer	Membrane feeding	Sample		0	100	7.29773462783171	5	8	3	43		["deadmosq"]	
+EUPATH_0020081	Fed mosquitoes count	integer	Membrane feeding	Sample		20	134	78.2459546925566	78	86	70	75		["numfed"]	
+EUPATH_0020085	Feeding method	string	Membrane feeding	Sample								1	["Membrane feeding"]	["feedingmethod"]	
+EUPATH_0020108	Media type	string	Membrane feeding	Sample								2	["Serum replacement","Whole blood"]	["media"]	
+EUPATH_0020111	Mosquito dissection date	date	Membrane feeding	Sample		2017-11-03	2019-11-15	2019-01-04	2019-01-24	2019-07-11	2018-08-06	370		["datedis"]	
+EUPATH_0020118	Mosquito source	string	Membrane feeding	Sample								2	["Colony","Wild collected"]	["source"]	
+EUPATH_0020120	Mosquitoes dissected count	integer	Membrane feeding	Sample		7	100	67.131067961165	68	79	60	81		["numdissected"]	
+EUPATH_0020121	Mosquitoes not feeding	string	Membrane feeding	Sample								2	["No","Yes"]	["notfeeding"]	
+EUPATH_0020125	Blood microbiology tests procedures		Blood microbiology test	Sample											
+EUPATH_0020166	Plasmodium, by qPCR result	number	Raw eukaryota data for blood	Sample		0	156409.4	157.563792269013	0	0	0	1299		["qpcr"]	
+EUPATH_0020167	Plasmodium ovale	string	Plasmodium species, by microscopy	Sample								1	["No"]	["ovale"]	
+EUPATH_0020193	Plasmodium male gametocytes, by qPCR result	number	Raw eukaryota data for blood	Sample		0	1027.0703	3.01819335616438	0.0212	0.29795	0	735		["gametocyte_male_uL"]	
+EUPATH_0020194	Plasmodium female gametocytes, by qPCR result	number	Raw eukaryota data for blood	Sample		0	889.0325	3.68103191780822	0.05315	0.5727	0	809		["gametocyte_female_uL"]	
+EUPATH_0020195	Plasmodium gametocytes, by qPCR result	number	Raw eukaryota data for blood	Sample		0	1804.6042	6.71351360218729	0.0881	0.88665	0	884		["gametocyte_total_uL"]	
+EUPATH_0020200	Unknown species	string	Plasmodium species, by microscopy	Sample								1	["No"]	["unknown"]	
+EUPATH_0020209	Anemia (hemoglobin <10 g/dL)	string	Blood test	Sample								2	["No","Yes"]	["anemia10"]	
+EUPATH_0020223	Asexual Plasmodium categorization, by microscopy	string	Plasmodium in blood	Sample								4	["Negative","(10-100] per uL blood","(100-1000] per uL blood",">1000 per uL blood"]	["BScat"]	
+OBI_0002649	Blood microbiology test		Laboratory test	Sample											
+OBI_0100051	Sample type	string	Sample details	Sample	A thick smear, filter paper, WB qPCR (2 aliquots), and WB RNA Protect (3 aliquots) were always collected.							13	["10 mL EDTA for hemocue, 2 aliquots plasma, 2 aliquots Buffy coat, 1 aliquot RBC pellet","2 mL EDTA + 10 mL EDTA + 3 mL heparin for hemocue, PBMCs, MACs, and membrane feeding","2 mL EDTA + 10 mL EDTA for hemocue and PBMCs","2 mL EDTA + 10 mL EDTA for hemocue, PBMCs, and MACs","2 mL EDTA + 6 mL EDTA for hemocue and PBMCs","4 mL EDTA + 3 mL heparin for hemocue, membrane feeding, 2 aliquots plasma, 1 aliquot RBC pellet","4 mL EDTA for 2 aliquots plasma, 1 aliquot RBC pellet","4 mL EDTA for hemocue, 2 aliquots plasma, 2 aliquots Buffy coat, 1 aliquot RBC pellet","6 mL EDTA + 3 mL heparin for MACs and membrane feeding, 2 aliquots plasma, 1 aliquot RBC pellet","6 mL EDTA for 2 aliquots plasma, 1 aliquot RBC pellet","6 mL EDTA for hemocue, 2 aliquots plasma, 1 aliquot RBC pellet","6 mL EDTA for MACs, 2 aliquots plasma, 1 aliquot RBC pellet","Missing"]	["labalgorithm"]	
+EUPATH_0000048	Plasmodium asexual stages, by microscopy	string	Plasmodium in blood	Sample								2	["No","Yes"]	["BSdich"]	
+EUPATH_0000092	Plasmodium asexual stages, by microscopy result	integer	Raw eukaryota data for blood	Sample		0	209120	106.560520148182	0	0	0	102		["parasitedensity"]	
+OBI_0000070	Laboratory test		Sample	Sample											OGMS_0000056
+CMO_0000026	Hemoglobin	number	Blood test	Sample		6.3	20	14.0929961089494	14	15.3	12.9	123		["hemoglobin"]	EUPATH_0000047
+OBI_0003040	Blood test		Laboratory test	Sample											EUPATH_0011795
+OBI_0003244	Raw test result for blood		Blood microbiology test	Sample											
+OBI_0003044	Plasmodium species, by qPCR	string	Plasmodium in blood	Sample								4	["P. falciparum","P. falciparum+P. ovale+P. malariae","P. malariae","P. ovale"]	["speciesPCR"]	EUPATH_0000433
+EUPATH_0000207	Plasmodium gametocytes, by microscopy	string	Plasmodium in blood	Sample								2	["No","Yes"]	["gamdich"]	
+EUPATH_0000423	Plasmodium species, by microscopy		Plasmodium in blood	Sample											
+EUPATH_0011161	Anemia (hemoglobin <11 g/dL)	string	Blood test	Sample								2	["No","Yes"]	["anemia11"]	
+EUPATH_0011996	Sample details		Sample	Sample											
+EUPATH_0020054	Blood leaking from feeders	string	Membrane feeding	Sample								2	["No","Yes"]	["leaking"]	
+EUPATH_0020055	Blood smear reading	string	Blood eukaryote testing	Sample								2	["Routine","Urgent"]	["bsreading"]	
+EUPATH_0020239	Membrane feeding		Sample	Sample											
+EUPATH_0020240	Membrane feeding performed	string	Membrane feeding	Sample								1	["Yes"]	["MFdone"]	
+EUPATH_0020241	Plasmodium oocyst complexity of infection	integer	Membrane feeding	Sample	Number of genetically distinct Plasmodium oocysts identified within the mosquito	1	10	2.57575757575758	2	3	1	7	["1","2","3","4","5","7","10"]	["fixed_COI_o"]	
+EUPATH_0020242	Mosquitoes with oocysts count	integer	Membrane feeding	Sample		0	70	0.72168284789644	0	0	0	17		["anyoocysts"]	
+EUPATH_0020243	Mosquitoes with oocysts proportion	number	Membrane feeding	Sample	Proportion of Mosquitoes with oocysts to all fed Mosquitoes	0	0.81	0.01011326860841	0	0	0	20		["propinfected"]	
+EUPATH_0020245	Plasmodium complexity of infection	integer	Plasmodium in blood	Sample	Number of genetically distinct Plasmodium parasites identified within the blood sample	1	16	1.87166324435318	1	2	1	16		["fixed_COI_b"]	
+EUPATH_0020246	Plasmodium haplotype ID	string	Plasmodium in blood	Sample	Haplotype identifiers for each genetically distinct Plasmodium parasite identified within the blood sample							51	["pfama1.00","pfama1.01","pfama1.02","pfama1.03","pfama1.04","pfama1.05","pfama1.06","pfama1.07","pfama1.08","pfama1.09","pfama1.10","pfama1.11","pfama1.12","pfama1.13","pfama1.14","pfama1.15","pfama1.16","pfama1.17","pfama1.18","pfama1.19","pfama1.20","pfama1.21","pfama1.22","pfama1.23","pfama1.24","pfama1.25","pfama1.26","pfama1.27","pfama1.28","pfama1.29","pfama1.30","pfama1.31","pfama1.32","pfama1.33","pfama1.34","pfama1.35","pfama1.36","pfama1.37","pfama1.38","pfama1.39","pfama1.40","pfama1.41","pfama1.42","pfama1.43","pfama1.44","pfama1.45","pfama1.46","pfama1.47","pfama1.48","pfama1.49","pfama1.50"]	["h_popUID_b"]	
+EUPATH_0020248	Plasmodium density categorization, by qPCR	string	Plasmodium in blood	Sample								9	["Negative","[0.001-0.01] per uL","(0.01-0.05] per uL","(0.05-0.1] per uL","(0.1-1] per uL","(1-10] per uL","(10-100] per uL","(100-1000] per uL",">1000 per uL"]	["parasite_density_category"]	
+EUPATH_0020251	Oocysts count	integer	Membrane feeding	Sample	Total number of oocysts from all blood-fed Mosquitoes	0	591	2.35922330097087	0	0	0	22		["totaloocysts"]	
+EUPATH_0021028	Plasmodium falciparum	string	Plasmodium species, by microscopy	Sample								2	["No","Yes"]	["falciparum"]	
+EUPATH_0021029	Plasmodium vivax	string	Plasmodium species, by microscopy	Sample								1	["No"]	["vivax"]	
+EUPATH_0021030	Plasmodium malariae	string	Plasmodium species, by microscopy	Sample								1	["No"]	["malariae"]	
+EUPATH_0021130	Blood eukaryote testing		Blood microbiology tests procedures	Sample											
+EUPATH_0022172	Plasmodium gametocytes, by qPCR	string	Plasmodium in blood	Sample								2	["No","Yes"]	["gametocyte_prevalence"]	
+EUPATH_0023018	Plasmodium gametocytes, by microscopy result	integer	Raw eukaryota data for blood	Sample		0	512	0.21342708097074	0	0	0	21		["gametocytes"]	
+EUPATH_0025125	Plasmodium, by qPCR	string	Plasmodium in blood	Sample								2	["Negative","Positive"]	["parasite_prevalence_qpcr"]	
+EUPATH_0033307	Eukaryota in blood		Blood microbiology test	Sample											
+EUPATH_0033308	Plasmodium in blood		Eukaryota in blood	Sample											
+OBI_0003263	Raw eukaryota data for blood		Raw test result for blood	Sample											
+EUPATH_0000150	Death date	date	Death information	Participant		2018-05-09	2019-01-20	2018-10-02	2018-11-08	2018-12-14	2018-08-08	3	["2018-05-09","2018-11-08","2019-01-20"]	["deathdate"]	
+EUPATH_0000151	Enrollment date	date	Administrative information	Participant	Date of Enrollment	2017-09-27	2019-08-04	2017-12-05	2017-10-19	2017-10-29	2017-10-12	76		["enrolldate"]	
+EUPATH_0000152	Last date observed	date	Administrative information	Participant		2017-10-15	2019-11-07	2019-09-25	2019-10-29	2019-11-03	2019-10-25	61		["lastdate"]	
+EUPATH_0000208	Reason for withdrawal	string	Administrative information	Participant								5	["Death","Inability to comply with study schedules and procedures","Moved out of Nagongera sub-county","Unable to be located for > 4 month","Withdrawal of informed consent"]	["withdrawnreason"]	
+EUPATH_0000219	Timing of enrollment	string	Administrative information	Participant								2	["After initial screening","During initial screening"]	["screening"]	
+EUPATH_0000667	Died	string	Death information	Participant								1	["Yes"]	["death"]	
+EUPATH_0000671	Death information		Demographics	Participant											
+EUPATH_0010035	Administrative information		Participant	Participant											
+EUPATH_0010067	Death location	string	Death information	Participant								2	["Home","Hospital"]	["participantdie"]	
+EUPATH_0010424	Participant enrolled in PRISM1	string	Administrative information	Participant								2	["Enrolled in PRISM 1","Not enrolled in PRISM 1"]	["enrolstatus"]	
+EUPATH_0010981	Demographics		Participant	Participant											
+EUPATH_0020001	Cause of death	string	Death information	Participant								3	["Liver disease","Respiratory failure, pulmonary tb","Severe dehydration, severe vomiting"]	["cause1","cause2","cause3"]	
+EUPATH_0020068	Death malaria-related	string	Death information	Participant								1	["No"]	["r2malaria"]	
+EUPATH_0020258	Re-enrollment date	date	Administrative information	Participant		2018-04-27	2019-07-13	2019-01-10	2019-03-13	2019-06-14	2018-07-16	6	["2018-04-27","2018-07-16","2019-01-18","2019-05-06","2019-06-14","2019-07-13"]	["reenrolldate"]	
+EUPATH_0020259	Withdrawal date	date	Administrative information	Participant		2017-10-15	2019-10-04	2018-11-27	2019-01-25	2019-04-28	2018-05-25	53		["dow"]	
+EUPATH_0020265	Withdrawal date, 2	date	Administrative information	Participant		2019-09-24	2019-09-30	2019-09-27	2019-09-27	2019-09-30	2019-09-24	2	["2019-09-24","2019-09-30"]	["dow2nd"]	
+EUPATH_0020266	Reason for withdrawal, 2	string	Administrative information	Participant								1	["Moved out of area"]	["withdrawnreason2nd"]	
+PATO_0000047	Sex	string	Demographics	Participant								2	["Female","Male"]	["gender"]	
+GAZ_00000448	Geographic location		Household	Household											
+EUPATH_0000731	Household water		Household	Household											
+EUPATH_0011932	Socioeconomic status		Socioeconomic factors	Household											
+EUPATH_0000596	Waste disposal		Dwelling facilities	Household											
+EUPATH_0000303	Dwelling characteristics		Household	Household											
+EUPATH_0010032	Dwelling environment		Household	Household											
+EUPATH_0011683	Food security		Socioeconomic factors	Household											
+EUPATH_0020097	Household administrative information		Household	Household											
+EUPATH_0000341	Household vector intervention		Household	Household											
+EUPATH_0000144	Assets		Socioeconomic factors	Household											
+EUPATH_0000304	Socioeconomic factors		Household	Household											
+EUPATH_0011995	Household observation details		Household	Household											
+EUPATH_0000302	Dwelling facilities		Household	Household											
+ENVO_00000009	Country	string	Geographic location	Household								1	["Uganda"]	["country"]	ENVO_00000004
+ENVO_00000501	Bed	string	Assets	Household								2	["No","Yes"]	["bed"]	
+ENVO_00003064	Drinking water source	string	Household water	Household								8	["Borehole","Open public well","Piped into yard/compound","Protected public well","Protected spring","Protected well in yard/compound","Public tap","Unprotected spring"]	["swater"]	
+ENVO_01000577	Radio	string	Assets	Household								2	["No","Yes"]	["radio"]	
+ENVO_01000578	Cassette player	string	Assets	Household								2	["No","Yes"]	["cassette"]	
+ENVO_01000579	Television	string	Assets	Household								2	["No","Yes"]	["tv"]	
+ENVO_01000581	Mobile phone	string	Assets	Household								2	["No","Yes"]	["mobile"]	
+ENVO_01000583	Refrigerator	string	Assets	Household								1	["No"]	["fridge"]	
+ENVO_01000584	Table	string	Assets	Household								2	["No","Yes"]	["tble"]	
+ENVO_01000586	Chair	string	Assets	Household								2	["No","Yes"]	["chair"]	
+ENVO_01000588	Sofa	string	Assets	Household								2	["No","Yes"]	["sofa"]	
+ENVO_01000595	Cupboard	string	Assets	Household								2	["No","Yes"]	["cupboard"]	
+ENVO_01000596	Clock	string	Assets	Household								2	["No","Yes"]	["clock"]	
+ENVO_01000614	Bicycle	string	Assets	Household								2	["No","Yes"]	["bicycle"]	
+ENVO_01000615	Motorcycle or scooter	string	Assets	Household								2	["No","Yes"]	["scooter"]	
+ENVO_01000744	Dwelling type	string	Dwelling characteristics	Household								2	["Modern","Traditional"]	["housetype"]	
+ENVO_01000825	Eaves	string	Dwelling characteristics	Household								2	["Closed","Open"]	["eaves"]	EUPATH_0000015
+EUPATH_0000003	Roof material	string	Dwelling characteristics	Household								2	["Iron sheets","Thatched (including papyrus)"]	["mmroof"]	
+EUPATH_0000006	Floor material	string	Dwelling characteristics	Household								3	["Cement/concrete","Earth and dung","Earth or sand"]	["mmfloor"]	
+EUPATH_0000009	Wall material	string	Dwelling characteristics	Household								5	["Burnt bricks with mud","Burnt bricks with plaster/cement","Mud and poles","Un-burnt bricks","Un-burnt bricks with plaster/cement"]	["mmewalls"]	
+EUPATH_0000014	Household wealth index, numerical	number	Socioeconomic status	Household		-3.358	2.553	1.1500674545e-17	0.2815	1.082	-0.893	51		["wealthindex"]	
+EUPATH_0000019	Persons living in house count	integer	Socioeconomic factors	Household		3	8	5.825	6	7	5	6	["3","4","5","6","7","8"]	["npeople"]	
+EUPATH_0000023	Cooking fuel	string	Dwelling facilities	Household								2	["Charcoal","Firewood"]	["fueltype"]	
+EUPATH_0000025	Sleeping rooms in dwelling count	integer	Dwelling characteristics	Household		1	3	1.8	2	2	1	3	["1","2","3"]	["hhrooms","rooms"]	
+EUPATH_0000026	Acres	number	Socioeconomic factors	Household		0	10	2.290625	2	3	1	15		["numaland"]	
+EUPATH_0000027	Meals per day	integer	Food security	Household		2	3	2.4875	2	3	2	2	["2","3"]	["hhmeals"]	
+EUPATH_0000028	Meat meals per week	integer	Food security	Household		0	5	0.8125	1	1	0	5	["0","1","2","3","5"]	["hhnumt"]	
+EUPATH_0000029	Food problems per week	string	Food security	Household								5	["Never","Seldom","Sometimes","Often","Always"]	["hhpsf"]	
+EUPATH_0000143	Household wealth index, categorical	string	Socioeconomic status	Household								3	["Least poor","Middle","Poorest"]	["wealthcat"]	
+EUPATH_0000167	Bank account	string	Assets	Household								2	["No","Yes"]	["bankacco"]	
+EUPATH_0000170	Boat without a motor	string	Assets	Household								1	["No"]	["nomboat"]	
+EUPATH_0000171	Car or truck	string	Assets	Household								1	["No"]	["car"]	
+EUPATH_0000179	Boat with a motor	string	Assets	Household								1	["No"]	["mboat"]	
+EUPATH_0000186	Watch	string	Assets	Household								2	["No","Yes"]	["watch"]	
+EUPATH_0000201	Sleeping places count	integer	Dwelling characteristics	Household		1	7	3.0375	3	4	2	7	["1","2","3","4","5","6","7"]	["hhspaces"]	
+EUPATH_0000335	Human waste facilities	string	Waste disposal	Household								4	["Covered pit latrine no slab","Covered pit latrine w/slab","No facility/bush/field","Uncovered pit latrine no slab"]	["tfaclty"]	
+EUPATH_0000390	Last fumigation date	date	Household vector intervention	Household		2017-06-09	2017-08-26	2017-07-25	2017-07-26	2017-08-06	2017-07-16	40		["datespray"]	
+EUPATH_0000400	Long-lasting ITN bednet count	integer	Household vector intervention	Household		0	10	3.5	4	4	2	9	["0","1","2","3","4","5","6","7","10"]	["LLIN"]	
+EUPATH_0000441	Sprayed in the last 12 months	string	Household vector intervention	Household	Insecticide residual spraying in last 12 months							2	["No","Yes"]	["gpspray"]	
+EUPATH_0020101	Household status in PRISM1	string	Household administrative information	Household								2	["Enrolled","Not enrolled"]	["hhstatus"]	
+EUPATH_0020171	Sleeping rooms with windows	string	Dwelling characteristics	Household								2	["No","Yes"]	["windows"]	
+EUPATH_0020205	Internet device	string	Assets	Household								1	["No"]	["internet"]	
+EUPATH_0020212	Windows covered	string	Dwelling characteristics	Household								3	["No","Not applicable","Yes"]	["covered"]	
+EUPATH_0020213	Health facility distance	number	Dwelling environment	Household	Distance to the nearest health facility	0.2	5	1.85375	1	3	1	14		["dhfcty"]	
+EUPATH_0020214	Health facility distance categorization	string	Dwelling environment	Household								4	["<1 km","1 to <2 km","2 to <3 km","3 or more km"]	["dhfctycat"]	
+EUPATH_0020215	Market distance	number	Dwelling environment	Household		0.1	9	2.48125	2.25	3.5	1	16		["dmarkt"]	
+EUPATH_0020217	Transit to health facility	string	Dwelling environment	Household	Method of transit used to reach nearest health facility							3	["Bicycle","Car/motorcycle","Walking"]	["mthfcty"]	
+EUPATH_0020219	One bednet per 2 people	string	Household vector intervention	Household	At least one bednet per two people							2	["No","Yes"]	["ADEQUATENETS"]	
+EUPATH_0020220	One long-lasting ITN per 2 people	string	Household vector intervention	Household	At least one LLIN per two people							2	["No","Yes"]	["ADEQUATELLINS"]	
+EUPATH_0020221	Acres categorization	string	Socioeconomic factors	Household								4	["None","<=1","1-3",">3"]	["numalandcat"]	
+EUPATH_0020224	Asked permission for IRS in last 12 months	string	Household vector intervention	Household								2	["No","Yes"]	["pspray"]	
+EUPATH_0020225	Bednet count	integer	Household vector intervention	Household		0	10	3.5	4	4	2	9	["0","1","2","3","4","5","6","7","10"]	["ANYNET"]	
+EUPATH_0020226	Bednet count categorization	string	Household vector intervention	Household		1	2	1.75	2	2	1.5	4	["1","2","3 or more","None"]	["ANYNETcat"]	
+EUPATH_0020227	Bednets per person count	number	Household vector intervention	Household		0	1.43	0.609625	0.57	0.775	0.43	20		["NETSPERPERSON"]	
+EUPATH_0020229	Community health worker has malaria medication	string	Dwelling environment	Household	The community health worker currently has malaria medicines available							2	["No","Not applicable"]	["amchwker"]	
+EUPATH_0020230	Community health worker present	string	Dwelling environment	Household	A community health worker (community medicine distributor/CMD, village health team/VHT, community own resource person/CORP) distributes malaria medicines in the village or community							2	["No","Yes"]	["ahwker"]	
+EUPATH_0020231	Time since last fumigation	integer	Household vector intervention	Household		46	130	88.1805555555556	85.5	103.5	72.5	47		["tspray"]	
+EUPATH_0020232	Household bednets	string	Household vector intervention	Household	Household has bednets							2	["No","Yes"]	["havenets"]	
+EUPATH_0020233	Household screening date	date	Household administrative information	Household		2017-09-26	2017-11-01	2017-10-12	2017-10-11	2017-10-17	2017-10-06	34		["screendate"]	
+EUPATH_0020234	Long-lasting ITN bednet count categorization	string	Household vector intervention	Household		1	2	1.75	2	2	1.5	4	["1","2","3 or more","None"]	["LLINcat"]	
+EUPATH_0020235	Long-lasting ITNs per person count	number	Household vector intervention	Household		0	1.43	0.609625	0.57	0.775	0.43	20		["LLINSPERPERSON"]	
+EUPATH_0020237	Meals per day categorization	string	Food security	Household		2	2	2	2			2	["2","3 or more"]	["hhmealscat"]	
+EUPATH_0020238	Meat meals per week categorization	string	Food security	Household		1	3	1.27659574468085	1	1	1	5	["1","2","3","4 or more","None"]	["hhnumtcat"]	
+EUPATH_0020247	Persons enrolled in study count	integer	Household administrative information	Household	Number of people within the household enrolled in the study	3	8	5.825	6	7	5	6	["3","4","5","6","7","8"]	["ncohort"]	
+EUPATH_0020250	Sprayed in the last 12 months categorization	string	Household vector intervention	Household								3	["0-3 months","4-6 months","None"]	["spraycat"]	
+EUPATH_0021084	Electricity	string	Assets	Household								2	["No","Yes"]	["electricity"]	
+EUPATH_0021085	Household data collection date	date	Household observation details	Household		2017-10-06	2017-11-16	2017-10-22	2017-10-19	2017-11-02	2017-10-13	37		["surveydate"]	
+OBI_0400065	Lighting source	string	Dwelling facilities	Household								5	["Electricity","Paraffin - hurricane lamp","Paraffin - wick lamp","Solar","Torch/battery powered lamp"]	["senergy"]	
+EUPATH_0020082	Bloodfed other Anopheles species count	integer	Anopheles results	Household repeated measure		0	2	0.00170268500327	0	0	0	3	["0","1","2"]	["fedanoph3","fedanoph2","fedanoph1"]	
+EUPATH_0020086	Gravid or semigravid other Anopheles species count	integer	Anopheles results	Household repeated measure		0	2	0.00445317616241	0	0	0	3	["0","1","2"]	["gravidanoph1","gravidanoph2","gravidanoph3"]	
+EUPATH_0020178	Collection room number	integer	Arthropod collection process	Household repeated measure		1	4	1.57303224122177	1	2	1	4	["1","2","3","4"]	["roomnumm1","roomnumm3","roomtrapset3","roomtrapset2","roomnumm2","roomtrapset1"]	
+EUPATH_0020179	Collection start time	number	Arthropod collection process	Household repeated measure		19	19	19	19			1	["19.000"]	["trapset"]	
+EUPATH_0020180	Collection working	string	Arthropod collection process	Household repeated measure								2	["Not working","Working"]	["trapworking1","trapworking2","trapworking3"]	
+EUPATH_0020183	Collection end time	number	Arthropod collection process	Household repeated measure		0.83	17.42	12.4766818953139	12.28	12.62	11.98	135		["trapcollected"]	
+EUPATH_0020188	Unable to assess other Anopheles species count	integer	Anopheles results	Household repeated measure		0	5	0.00537000654879	0	0	0	5	["0","1","2","4","5"]	["unableassessanoph3","unableassessanoph2","unableassessanoph1"]	
+EUPATH_0020197	Unfed other Anopheles species count	integer	Anopheles results	Household repeated measure		0	4	0.02514734774067	0	0	0	5	["0","1","2","3","4"]	["unfedanoph1","unfedanoph2","unfedanoph3"]	
+EUPATH_0020210	Culex count	integer	Culex results	Household repeated measure		0	17	0.02527832351015	0	0	0	12		["culex1","culex2","culex3"]	
+OBI_0002913	Arthropod collection process		Household	Household repeated measure											
+EUPATH_0000135	Female Anopheles count	integer	Anopheles results	Household repeated measure		0	169	2.06679764243615	0	1	0	69		["totalanopheles2","totalanopheles1","totalanopheles3"]	
+EUPATH_0000136	Female Anopheles funestus count	integer	Anopheles funestus results	Household repeated measure		0	3	0.00497707924034	0	0	0	4	["0","1","2","3"]	["totalfunestus2","totalfunestus1","totalfunestus3"]	
+EUPATH_0000137	Female Anopheles gambiae count	integer	Anopheles gambiae sensu lato results	Household repeated measure		0	169	2.02514734774067	0	1	0	70		["totalgambiae3","totalgambiae2","totalgambiae1"]	
+EUPATH_0000192	Bloodfed Anopheles funestus count	integer	Anopheles funestus results	Household repeated measure		0	3	0.00091683038638	0	0	0	3	["0","1","3"]	["fedfunes3","fedfunes2","fedfunes1"]	
+EUPATH_0000193	Bloodfed Anopheles gambiae count	integer	Anopheles gambiae sensu lato results	Household repeated measure		0	39	0.14289456450557	0	0	0	17		["fedgamb3","fedgamb1","fedgamb2"]	
+EUPATH_0000194	Anopheles dissected for parity count	integer	Anopheles parity	Household repeated measure		0	81	1.5328094302554	0	1	0	51		["discparity3","discparity2","discparity1"]	
+EUPATH_0000195	Anopheles nulliparous count	integer	Anopheles parity	Household repeated measure		0	48	0.64086444007859	0	0	0	35		["nulliparous2","nulliparous3","nulliparous1"]	
+EUPATH_0000196	Anopheles parous count	integer	Anopheles parity	Household repeated measure		0	39	0.89194499017682	0	1	0	31		["parous2","parous1","parous3"]	
+EUPATH_0000197	Gravid Anopheles funestus count	integer	Anopheles funestus results	Household repeated measure		0	2	0.00144073346431	0	0	0	3	["0","1","2"]	["gravidfenes3","gravidfenes1","gravidfenes2"]	
+EUPATH_0000198	Gravid Anopheles gambiae count	integer	Anopheles gambiae sensu lato results	Household repeated measure		0	22	0.17773411918795	0	0	0	15		["gravidgambie1","gravidgambie3","gravidgambie2"]	
+EUPATH_0000200	Other female Anopheles species count	integer	Anopheles results	Household repeated measure		0	5	0.03667321545514	0	0	0	6	["0","1","2","3","4","5"]	["totalother3","totalother2","totalother1"]	
+EUPATH_0000202	Unable to assess Anopheles funestus count	integer	Anopheles funestus results	Household repeated measure		0	1	0.00065487884741	0	0	0	2	["0","1"]	["unableassess2","unableassess1","unableassess3"]	
+EUPATH_0000203	Unable to assess Anopheles gambiae count	integer	Anopheles gambiae sensu lato results	Household repeated measure		0	19	0.10687622789784	0	0	0	15		["gunableassess1","gunableassess3","gunableassess2"]	
+EUPATH_0000204	Unfed Anopheles funestus count	integer	Anopheles funestus results	Household repeated measure		0	2	0.00196463654224	0	0	0	3	["0","1","2"]	["unfedfunes1","unfedfunes2","unfedfunes3"]	
+EUPATH_0000205	Unfed Anopheles gambiae count	integer	Anopheles gambiae sensu lato results	Household repeated measure		0	168	1.59764243614931	0	1	0	61		["unfedgamb2","unfedgamb1","unfedgamb3"]	
+EUPATH_0000322	Anopheles funestus results		Anopheles results	Household repeated measure											
+EUPATH_0000323	Anopheles gambiae sensu lato results		Anopheles results	Household repeated measure											
+EUPATH_0000324	Anopheles parity		Anopheles results	Household repeated measure											
+EUPATH_0020003	Collection date	date	Arthropod collection process	Household repeated measure		2017-10-27	2019-10-24	2018-10-29	2018-11-01	2019-04-27	2018-05-04	728		["date"]	
+EUPATH_0020262	Anopheles gambiae sensu lato tested by PCR count	integer	Anopheles gambiae sensu lato results	Household repeated measure	A subset of Anopheles gambiae sl were tested for subspecies identification by PCR. This variable indicates the number of Anopheles gambiae sl from all collections done within a household on a given day. Note, this data is ony linked to the first reported collection within a household on a given day, not each collection that potentially contributed to it.	1	10	1.55516431924883	1	2	1	9	["1","2","3","4","5","6","7","8","10"]	["totalforspeciesID"]	
+EUPATH_0020263	Anopheles arabiensis count, by PCR	integer	Anopheles gambiae sensu lato results	Household repeated measure	The number of Anopheles gambiae sl that were tested for subspecies identification by PCR and found to be Anopheles arabiensis per household on a given day. Note, this data is ony linked to the first reported collection within a household on a given day, not each collection that potentially contributed to it.	0	10	1.53755868544601	1	2	1	10	["0","1","2","3","4","5","6","7","8","10"]	["arabiensis"]	
+EUPATH_0020264	Anopheles gambiae sensu stricto count, by PCR	integer	Anopheles gambiae sensu lato results	Household repeated measure	The number of Anopheles gambiae sl that were tested for subspecies identification by PCR and found to be Anopheles gambiae s.s. per household on a given day. Note, this data is ony linked to the first reported collection within a household on a given day, not each collection that potentially contributed to it.	0	1	0.01760563380282	0	0	0	2	["0","1"]	["gambiaess"]	
+EUPATH_0025053	Anopheles results		Arthropod sample	Household repeated measure											
+EUPATH_0025056	Culex results		Arthropod sample	Household repeated measure											
+EUPATH_0044177	Arthropod sample		Household	Household repeated measure											

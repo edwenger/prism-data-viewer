@@ -1,0 +1,532 @@
+Participant_Id	Household_Id	Cause of death [EUPATH_0020001]	Death date [EUPATH_0000150]	Death location [EUPATH_0010067]	Death malaria-related [EUPATH_0020068]	Died [EUPATH_0000667]	Enrollment date [EUPATH_0000151]	Last date observed [EUPATH_0000152]	Participant enrolled in PRISM1 [EUPATH_0010424]	Re-enrollment date [EUPATH_0020258]	Reason for withdrawal [EUPATH_0000208]	Reason for withdrawal, 2 [EUPATH_0020266]	Sex [PATO_0000047]	Timing of enrollment [EUPATH_0000219]	Withdrawal date [EUPATH_0020259]	Withdrawal date, 2 [EUPATH_0020265]
+3001	101009801						2017-10-03	2019-10-25	Enrolled in PRISM 1				Female	During initial screening		
+3003	101009801						2017-10-03	2019-10-25	Enrolled in PRISM 1				Male	During initial screening		
+3010	108001201						2017-10-10	2019-11-01	Enrolled in PRISM 1				Female	During initial screening		
+3011	108001201						2017-10-10	2019-11-01	Enrolled in PRISM 1				Male	During initial screening		
+3012	108001201						2017-10-10	2019-11-01	Enrolled in PRISM 1				Male	During initial screening		
+3013	108001201						2017-10-10	2019-11-01	Enrolled in PRISM 1				Female	During initial screening		
+3014	108001201						2017-10-10	2019-11-01	Enrolled in PRISM 1				Female	During initial screening		
+3020	112000801						2017-10-12	2019-04-25	Enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	During initial screening	2019-04-25	
+3021	112000801						2017-10-12	2019-11-03	Enrolled in PRISM 1				Female	During initial screening		
+3022	112000801						2017-10-12	2019-11-03	Enrolled in PRISM 1				Male	During initial screening		
+3036	114007303						2017-10-05	2019-10-25	Enrolled in PRISM 1				Female	During initial screening		
+3037	114007303						2017-10-05	2019-10-25	Enrolled in PRISM 1				Male	During initial screening		
+3038	114007303						2017-10-05	2019-10-25	Enrolled in PRISM 1				Male	During initial screening		
+3039	114007303						2017-10-05	2019-10-25	Enrolled in PRISM 1				Male	During initial screening		
+3044	114004501						2017-10-17	2019-04-30	Enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	During initial screening	2019-04-30	
+3045	114004501						2017-10-17	2019-04-30	Enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2019-04-30	
+3046	114004501						2017-10-17	2019-04-30	Enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	During initial screening	2019-04-30	
+3047	114004501						2017-10-17	2019-04-30	Enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2019-04-30	
+3055	114001102						2017-10-06	2019-10-28	Enrolled in PRISM 1				Female	During initial screening		
+3075	117009902						2017-10-12	2019-11-01	Enrolled in PRISM 1				Female	During initial screening		
+3077	117009902						2017-10-12	2019-11-01	Enrolled in PRISM 1				Female	During initial screening		
+3078	119008702						2017-10-03	2019-10-30	Enrolled in PRISM 1				Female	During initial screening		
+3079	119008702						2017-10-03	2019-10-30	Enrolled in PRISM 1				Female	During initial screening		
+3080	119008702						2017-10-03	2019-10-30	Enrolled in PRISM 1				Female	During initial screening		
+3081	119008702						2017-10-03	2019-10-30	Enrolled in PRISM 1				Female	During initial screening		
+3093	141017201						2017-09-27	2019-10-24	Enrolled in PRISM 1				Female	During initial screening		
+3094	141017201						2017-09-27	2018-11-21	Enrolled in PRISM 1		Unable to be located for > 4 month		Female	During initial screening	2018-11-21	
+3095	141017201						2017-09-27	2019-10-24	Enrolled in PRISM 1				Male	During initial screening		
+3096	141017201						2017-09-27	2019-10-24	Enrolled in PRISM 1				Male	During initial screening		
+3122	141001901						2017-10-17	2019-10-25	Enrolled in PRISM 1				Female	During initial screening		
+3123	141001901						2017-10-17	2019-10-25	Enrolled in PRISM 1				Male	During initial screening		
+3124	141001901						2017-10-17	2019-10-25	Enrolled in PRISM 1				Male	During initial screening		
+3125	141001901						2017-10-17	2019-10-25	Enrolled in PRISM 1				Male	During initial screening		
+3146	143000601						2017-10-22	2019-10-30	Enrolled in PRISM 1				Female	During initial screening		
+3147	143000601						2017-10-22	2019-10-30	Enrolled in PRISM 1				Male	During initial screening		
+3148	143000601						2017-10-22	2019-10-30	Enrolled in PRISM 1				Female	During initial screening		
+3149	143000601						2017-10-22	2019-10-30	Enrolled in PRISM 1				Female	During initial screening		
+3150	143000601						2017-10-22	2019-10-30	Enrolled in PRISM 1				Male	During initial screening		
+3151	128001701						2017-10-16	2019-10-24	Enrolled in PRISM 1				Female	During initial screening		
+3152	128001701						2017-10-16	2019-10-24	Enrolled in PRISM 1				Male	During initial screening		
+3153	128001701						2017-10-16	2019-10-24	Enrolled in PRISM 1				Female	During initial screening		
+3154	128001701						2017-10-16	2019-10-24	Enrolled in PRISM 1				Male	During initial screening		
+3162	128003501						2017-10-16	2019-11-07	Enrolled in PRISM 1				Female	During initial screening		
+3163	128003501						2017-10-16	2019-11-07	Enrolled in PRISM 1				Male	During initial screening		
+3164	128003501						2017-10-16	2019-11-07	Enrolled in PRISM 1				Female	During initial screening		
+3188	131011801						2017-10-27	2019-11-04	Enrolled in PRISM 1				Female	During initial screening		
+3189	131011801						2017-10-27	2019-11-04	Enrolled in PRISM 1				Male	During initial screening		
+3190	131011801						2017-10-27	2019-11-04	Enrolled in PRISM 1				Female	During initial screening		
+3191	131011801						2017-10-27	2019-11-04	Enrolled in PRISM 1				Female	During initial screening		
+3193	132005501						2017-10-30	2019-11-07	Enrolled in PRISM 1				Male	During initial screening		
+3201	125006301						2017-10-19	2019-10-27	Enrolled in PRISM 1				Female	During initial screening		
+3202	125006301						2017-10-19	2019-10-27	Enrolled in PRISM 1				Male	During initial screening		
+3204	125006301						2017-10-19	2019-10-27	Enrolled in PRISM 1				Female	During initial screening		
+3205	125006301						2017-10-19	2019-10-27	Enrolled in PRISM 1				Male	During initial screening		
+3218	146001002						2017-10-07	2019-02-16	Enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2019-02-16	
+3219	146001002						2017-10-07	2019-01-26	Enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	During initial screening	2019-01-26	
+3220	146001002						2017-10-07	2019-01-26	Enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2019-01-26	
+3222	118002402						2017-09-29	2019-10-26	Enrolled in PRISM 1				Male	During initial screening		
+3223	120005401						2017-10-09	2019-11-05	Enrolled in PRISM 1				Female	During initial screening		
+3224	120005401						2017-10-09	2019-11-05	Enrolled in PRISM 1				Male	During initial screening		
+3228	126002501						2017-10-09	2019-10-30	Enrolled in PRISM 1				Female	During initial screening		
+3231	126002501						2017-10-09	2019-10-30	Enrolled in PRISM 1				Female	During initial screening		
+3236	115007801						2017-10-07	2019-10-27	Enrolled in PRISM 1				Female	During initial screening		
+3237	115007801						2017-10-07	2019-10-27	Enrolled in PRISM 1				Male	During initial screening		
+3238	115007801						2017-10-07	2019-10-27	Enrolled in PRISM 1				Female	During initial screening		
+3249	134001001						2017-10-05	2019-10-25	Enrolled in PRISM 1				Female	During initial screening		
+3250	134001001						2017-10-05	2019-10-25	Enrolled in PRISM 1				Male	During initial screening		
+3251	134001001						2017-10-05	2019-10-25	Enrolled in PRISM 1				Male	During initial screening		
+3252	134001001						2017-10-05	2019-10-25	Enrolled in PRISM 1				Female	During initial screening		
+3253	111007302						2017-10-03	2019-10-24	Enrolled in PRISM 1				Female	During initial screening		
+3254	111007302						2017-10-03	2018-01-23	Enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2018-01-23	
+3255	111007302						2017-10-03	2019-10-24	Enrolled in PRISM 1				Female	During initial screening		
+3256	105006801						2017-10-09	2019-10-30	Enrolled in PRISM 1				Female	During initial screening		
+3283	143006701						2017-10-03	2019-10-24	Enrolled in PRISM 1				Female	During initial screening		
+3284	143006701						2017-10-03	2019-04-18	Enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	During initial screening	2019-04-18	
+3285	143006701						2017-10-03	2019-10-24	Enrolled in PRISM 1				Male	During initial screening		
+3286	143006701						2017-10-03	2019-10-24	Enrolled in PRISM 1				Male	During initial screening		
+3288	140005904						2017-10-10	2019-11-06	Enrolled in PRISM 1				Female	During initial screening		
+3289	140005904						2017-10-10	2019-11-06	Enrolled in PRISM 1				Male	During initial screening		
+3290	140005904						2017-10-10	2019-11-06	Enrolled in PRISM 1				Male	During initial screening		
+3306	145001701						2017-10-09	2019-10-29	Enrolled in PRISM 1				Female	During initial screening		
+3309	145001701						2017-10-09	2019-10-29	Enrolled in PRISM 1				Female	During initial screening		
+3310	145001701						2017-10-09	2019-10-29	Enrolled in PRISM 1				Male	During initial screening		
+3311	116000604						2017-10-15	2019-11-05	Enrolled in PRISM 1				Male	During initial screening		
+3312	116000604						2017-10-15	2019-11-05	Enrolled in PRISM 1				Male	During initial screening		
+3313	120000201	Respiratory failure, pulmonary tb	2018-11-08	Hospital	No	Yes	2017-10-11	2018-11-08	Enrolled in PRISM 1		Death		Female	During initial screening	2018-11-08	
+3315	120000201						2017-10-11	2019-11-07	Enrolled in PRISM 1				Female	During initial screening		
+3316	120000201						2017-10-11	2019-11-07	Enrolled in PRISM 1				Male	During initial screening		
+3336	122007301						2017-10-13	2019-11-02	Enrolled in PRISM 1				Male	During initial screening		
+3337	122007301						2017-10-13	2019-11-02	Enrolled in PRISM 1				Female	During initial screening		
+3359	101009801						2017-10-03	2019-10-25	Enrolled in PRISM 1				Female	During initial screening		
+3360	114001102						2017-10-06	2019-10-28	Enrolled in PRISM 1				Male	During initial screening		
+3364	120000201						2017-10-11	2019-11-07	Enrolled in PRISM 1				Female	During initial screening		
+3367	118002402						2017-09-29	2019-10-26	Enrolled in PRISM 1				Male	During initial screening		
+3371	132005501						2017-10-30	2019-11-07	Enrolled in PRISM 1				Male	During initial screening		
+3373	116000604						2017-10-15	2019-11-05	Enrolled in PRISM 1				Male	During initial screening		
+3374	120005401						2017-10-09	2019-11-05	Enrolled in PRISM 1				Female	During initial screening		
+3375	114007303						2017-10-05	2019-10-25	Enrolled in PRISM 1				Female	During initial screening		
+3376	145001701						2017-10-09	2019-10-29	Enrolled in PRISM 1				Male	During initial screening		
+3377	126002501						2017-10-09	2019-10-30	Enrolled in PRISM 1				Male	During initial screening		
+3386	119008702						2017-10-03	2019-10-30	Enrolled in PRISM 1				Male	During initial screening		
+3391	105006801						2017-10-09	2019-10-30	Enrolled in PRISM 1				Male	During initial screening		
+3393	114004501						2017-10-17	2019-04-30	Enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2019-04-30	
+3394	134001001						2017-10-05	2019-10-25	Enrolled in PRISM 1				Male	During initial screening		
+3398	125006301						2017-10-19	2019-10-27	Enrolled in PRISM 1				Female	During initial screening		
+3399	117009902						2017-10-12	2019-11-01	Enrolled in PRISM 1				Female	During initial screening		
+3400	141017201						2017-09-27	2019-10-24	Enrolled in PRISM 1				Male	During initial screening		
+3402	128001701						2017-10-16	2019-10-24	Enrolled in PRISM 1				Female	During initial screening		
+3406	141001901						2017-10-17	2019-10-25	Enrolled in PRISM 1				Male	During initial screening		
+3407	112000801						2017-10-12	2019-11-03	Enrolled in PRISM 1				Female	During initial screening		
+3418	114006801						2017-10-15	2019-10-30	Enrolled in PRISM 1				Female	During initial screening		
+3419	114006801						2017-10-15	2019-10-30	Enrolled in PRISM 1				Male	During initial screening		
+3420	143001101						2017-10-13	2019-11-04	Enrolled in PRISM 1				Female	During initial screening		
+3421	143001101						2017-10-13	2019-11-04	Enrolled in PRISM 1				Male	During initial screening		
+3429	114006801						2017-10-15	2019-10-30	Enrolled in PRISM 1				Female	During initial screening		
+3434	122007301						2017-10-13	2019-11-02	Enrolled in PRISM 1				Male	During initial screening		
+3440	131011801						2017-10-27	2019-11-04	Enrolled in PRISM 1				Female	During initial screening		
+3441	146001002						2017-10-07	2019-10-28	Enrolled in PRISM 1	2018-07-16	Unable to be located for > 4 month		Female	During initial screening	2018-01-07	
+3443	114001102						2017-10-06	2019-10-28	Enrolled in PRISM 1				Female	During initial screening		
+3444	120005401						2017-10-09	2019-11-05	Enrolled in PRISM 1				Male	During initial screening		
+3446	122007301						2017-10-13	2019-02-01	Enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2019-02-01	
+3447	128003501						2017-10-16	2017-12-11	Enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	During initial screening	2017-12-11	
+3453	120000201						2017-10-11	2019-11-07	Enrolled in PRISM 1				Male	During initial screening		
+3454	111007302						2017-10-03	2019-10-24	Enrolled in PRISM 1				Male	During initial screening		
+3457	101009801						2017-10-03	2019-10-25	Enrolled in PRISM 1				Female	During initial screening		
+3459	114011201						2017-10-05	2019-10-27	Enrolled in PRISM 1				Female	During initial screening		
+3460	116000604						2017-10-15	2019-11-05	Enrolled in PRISM 1				Male	During initial screening		
+3461	114007303						2017-10-05	2019-10-25	Enrolled in PRISM 1				Male	During initial screening		
+3463	143006701						2017-10-03	2019-10-24	Enrolled in PRISM 1				Female	During initial screening		
+3464	128001701						2017-10-16	2019-10-24	Enrolled in PRISM 1				Female	During initial screening		
+3466	143001101						2017-10-13	2019-11-04	Enrolled in PRISM 1				Female	During initial screening		
+3467	141017201						2017-09-27	2019-10-24	Enrolled in PRISM 1				Male	During initial screening		
+3470	134001001						2017-10-05	2018-04-19	Enrolled in PRISM 1		Unable to be located for > 4 month		Female	During initial screening	2018-04-19	
+3473	112000801						2017-10-12	2019-11-03	Enrolled in PRISM 1				Male	During initial screening		
+3475	143000601						2017-10-22	2019-10-30	Enrolled in PRISM 1				Female	During initial screening		
+3476	125006301						2017-10-19	2019-10-27	Enrolled in PRISM 1				Male	During initial screening		
+3478	132005501						2017-10-30	2019-11-07	Enrolled in PRISM 1				Male	During initial screening		
+3482	114011201						2017-10-05	2019-10-27	Enrolled in PRISM 1				Female	During initial screening		
+3485	119008702						2017-10-03	2019-10-30	Enrolled in PRISM 1				Male	During initial screening		
+3489	114006801						2017-10-15	2019-10-30	Not enrolled in PRISM 1				Female	During initial screening		
+3491	105006801						2017-10-09	2019-10-30	Enrolled in PRISM 1				Female	During initial screening		
+3493	128003501						2017-10-16	2019-11-07	Enrolled in PRISM 1				Female	During initial screening		
+3494	143006701						2017-10-03	2019-10-24	Enrolled in PRISM 1				Male	During initial screening		
+3495	105006801						2017-10-09	2019-10-30	Enrolled in PRISM 1				Female	During initial screening		
+3497	112000801						2017-10-12	2019-11-03	Enrolled in PRISM 1				Male	During initial screening		
+3499	145001701						2017-10-09	2019-10-29	Enrolled in PRISM 1				Female	During initial screening		
+3500	116000604						2017-10-15	2019-11-05	Enrolled in PRISM 1				Female	During initial screening		
+3501	108001201						2017-10-10	2019-11-01	Enrolled in PRISM 1				Female	During initial screening		
+3502	146001002						2017-10-07	2019-10-28	Enrolled in PRISM 1	2018-07-16	Unable to be located for > 4 month		Female	During initial screening	2018-01-01	
+3504	118002402						2017-09-29	2019-10-26	Not enrolled in PRISM 1				Male	During initial screening		
+3505	119008702						2017-10-03	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3506	120000201						2017-10-11	2019-11-07	Not enrolled in PRISM 1				Male	During initial screening		
+3507	140005904						2017-10-10	2018-09-11	Not enrolled in PRISM 1		Unable to be located for > 4 month		Female	During initial screening	2018-09-11	
+3508	140005904						2017-10-10	2019-11-06	Not enrolled in PRISM 1				Male	During initial screening		
+3509	120005401						2017-10-09	2019-11-05	Not enrolled in PRISM 1				Male	During initial screening		
+3510	141017201						2017-09-27	2019-10-24	Not enrolled in PRISM 1				Male	During initial screening		
+3511	143001101						2017-10-13	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3512	143001101						2017-10-13	2018-12-07	Not enrolled in PRISM 1		Inability to comply with study schedules and procedures		Female	During initial screening	2018-12-07	
+3513	143001101						2017-10-13	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3514	114001102						2017-10-06	2019-10-28	Not enrolled in PRISM 1				Male	During initial screening		
+3515	114001102						2017-10-06	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3516	112000801						2017-10-12	2019-11-03	Not enrolled in PRISM 1				Male	During initial screening		
+3517	108001201						2017-10-10	2019-11-01	Not enrolled in PRISM 1				Male	During initial screening		
+3518	128003501						2017-10-16	2019-11-07	Not enrolled in PRISM 1				Female	During initial screening		
+3519	114011201						2017-10-05	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3520	114011201						2017-10-05	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3521	114011201						2017-10-05	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3522	126002501						2017-10-09	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3523	114004501						2017-10-17	2019-04-02	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2019-04-02	
+3524	114004501						2017-10-17	2019-04-30	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	During initial screening	2019-04-30	
+3525	105006801						2017-10-09	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3526	116000604						2017-10-15	2019-11-05	Not enrolled in PRISM 1				Female	During initial screening		
+3527	146001002						2017-10-07	2019-10-28	Not enrolled in PRISM 1				Male	During initial screening		
+3528	146001002						2017-10-07	2019-10-28	Not enrolled in PRISM 1	2019-07-13	Unable to be located for > 4 month		Female	During initial screening	2018-01-01	
+3529	134001001						2017-10-05	2019-10-25	Not enrolled in PRISM 1				Male	During initial screening		
+3530	114007303						2017-10-05	2019-10-25	Not enrolled in PRISM 1				Male	During initial screening		
+3531	145001701						2017-10-09	2019-10-29	Not enrolled in PRISM 1				Male	During initial screening		
+3532	115007801						2017-10-07	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3533	122007301						2017-10-13	2019-11-02	Not enrolled in PRISM 1				Male	During initial screening		
+3534	122007301						2017-10-13	2019-11-02	Not enrolled in PRISM 1				Female	During initial screening		
+3535	122007301						2017-10-13	2019-11-02	Not enrolled in PRISM 1				Male	During initial screening		
+3536	117009902						2017-10-12	2019-11-01	Not enrolled in PRISM 1				Male	During initial screening		
+3537	117009902						2017-10-12	2019-11-01	Not enrolled in PRISM 1				Female	During initial screening		
+3538	117009902						2017-10-12	2018-02-01	Not enrolled in PRISM 1		Unable to be located for > 4 month		Male	During initial screening	2018-02-01	
+3539	117009902						2017-10-12	2019-11-01	Not enrolled in PRISM 1				Male	During initial screening		
+3540	127000301						2017-10-15	2019-10-30	Not enrolled in PRISM 1				Female	During initial screening		
+3541	127000301						2017-10-15	2019-07-21	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	During initial screening	2019-07-21	
+3542	127000301						2017-10-15	2019-10-30	Not enrolled in PRISM 1				Female	During initial screening		
+3543	127000301						2017-10-15	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3544	127000301						2017-10-15	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3545	127000301						2017-10-15	2019-05-26	Not enrolled in PRISM 1		Unable to be located for > 4 month		Male	During initial screening	2019-05-26	
+3546	131010802						2017-10-12	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3547	131010802						2017-10-12	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3548	131010802						2017-10-12	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3549	131010802						2017-10-12	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3550	131010802						2017-10-12	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3551	131010802						2017-10-12	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3552	131010802						2017-10-12	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3553	131005501						2017-10-22	2019-11-06	Not enrolled in PRISM 1				Male	During initial screening		
+3554	131005501						2017-10-22	2019-11-06	Not enrolled in PRISM 1				Female	During initial screening		
+3555	131005501						2017-10-22	2019-11-06	Not enrolled in PRISM 1				Female	During initial screening		
+3556	131005501						2017-10-22	2019-11-06	Not enrolled in PRISM 1				Female	During initial screening		
+3557	131005501						2017-10-22	2019-11-06	Not enrolled in PRISM 1				Female	During initial screening		
+3558	132005801						2017-10-15	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3559	132005801						2017-10-15	2019-10-30	Not enrolled in PRISM 1				Female	During initial screening		
+3560	132005801						2017-10-15	2017-10-15	Not enrolled in PRISM 1		Unable to be located for > 4 month		Female	During initial screening	2017-10-15	
+3561	132005801						2017-10-15	2017-10-15	Not enrolled in PRISM 1		Unable to be located for > 4 month		Female	During initial screening	2017-10-15	
+3562	132005801						2017-10-15	2019-10-30	Not enrolled in PRISM 1				Female	During initial screening		
+3563	132005801						2017-10-15	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3564	114006801						2017-10-15	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3565	114006801						2017-10-15	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3566	114006801						2017-10-15	2019-10-30	Not enrolled in PRISM 1				Female	During initial screening		
+3567	129001002						2017-10-12	2019-10-27	Not enrolled in PRISM 1	2018-04-27	Unable to be located for > 4 month		Male	During initial screening	2017-12-07	
+3568	129001002						2017-10-12	2019-04-26	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	During initial screening	2019-04-26	
+3569	129001002						2017-10-12	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3570	129001002						2017-10-12	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3571	129004401						2017-10-12	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3572	129004401						2017-10-12	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3573	129004401						2017-10-12	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3574	129004401						2017-10-12	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3575	103007901						2017-10-14	2019-10-28	Not enrolled in PRISM 1				Male	During initial screening		
+3576	103007901						2017-10-14	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3577	103007901						2017-10-14	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3578	103007901						2017-10-14	2019-10-28	Not enrolled in PRISM 1				Male	During initial screening		
+3579	103007901						2017-10-14	2019-10-28	Not enrolled in PRISM 1				Male	During initial screening		
+3580	103007901						2017-10-14	2019-10-28	Not enrolled in PRISM 1				Male	During initial screening		
+3581	103007901						2017-10-14	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3582	104009403						2017-10-18	2019-11-01	Not enrolled in PRISM 1				Male	During initial screening		
+3583	104009403						2017-10-18	2019-11-01	Not enrolled in PRISM 1				Female	During initial screening		
+3584	104009403						2017-10-18	2019-11-01	Not enrolled in PRISM 1				Female	During initial screening		
+3585	104009403						2017-10-18	2019-11-01	Not enrolled in PRISM 1				Female	During initial screening		
+3586	104009403						2017-10-18	2019-11-01	Not enrolled in PRISM 1				Male	During initial screening		
+3587	104009403						2017-10-18	2019-11-01	Not enrolled in PRISM 1				Male	During initial screening		
+3588	127008701						2017-10-24	2019-11-07	Not enrolled in PRISM 1				Male	During initial screening		
+3589	127008701						2017-10-24	2019-11-07	Not enrolled in PRISM 1				Female	During initial screening		
+3590	127008701						2017-10-24	2019-11-07	Not enrolled in PRISM 1				Male	During initial screening		
+3591	127008701						2017-10-24	2019-11-07	Not enrolled in PRISM 1				Female	During initial screening		
+3592	127008701						2017-10-24	2019-11-07	Not enrolled in PRISM 1				Female	During initial screening		
+3593	127008701						2017-10-24	2019-11-07	Not enrolled in PRISM 1				Female	During initial screening		
+3594	127008701						2017-10-24	2019-11-07	Not enrolled in PRISM 1				Female	During initial screening		
+3595	130015301						2017-10-21	2019-11-04	Not enrolled in PRISM 1	2019-05-06	Unable to be located for > 4 month		Male	During initial screening	2018-03-10	
+3596	130015301						2017-10-21	2019-04-07	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	During initial screening	2019-04-07	
+3597	130015301						2017-10-21	2019-03-09	Not enrolled in PRISM 1		Unable to be located for > 4 month		Male	During initial screening	2019-03-09	
+3598	130015301						2017-10-21	2019-04-07	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	During initial screening	2019-04-07	
+3599	130015301						2017-10-21	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3600	130015301						2017-10-21	2019-04-07	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2019-04-07	
+3601	111007501						2017-10-16	2019-10-30	Not enrolled in PRISM 1				Female	During initial screening		
+3602	111007501						2017-10-16	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3603	111007501						2017-10-16	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3604	111007501						2017-10-16	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3605	111007501						2017-10-16	2019-10-30	Not enrolled in PRISM 1				Female	During initial screening		
+3606	111007501						2017-10-16	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3607	111007501						2017-10-16	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3608	124007001	Liver disease	2019-01-20	Home	No	Yes	2017-10-11	2019-01-20	Not enrolled in PRISM 1		Death		Male	During initial screening	2019-01-20	
+3609	124007001						2017-10-11	2019-10-25	Not enrolled in PRISM 1				Female	During initial screening		
+3610	124007001						2017-10-11	2019-10-25	Not enrolled in PRISM 1				Male	During initial screening		
+3611	124007001						2017-10-11	2019-10-25	Not enrolled in PRISM 1				Female	During initial screening		
+3612	124007001						2017-10-11	2019-10-25	Not enrolled in PRISM 1				Female	During initial screening		
+3613	105000101						2017-10-14	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3614	105000101						2017-10-14	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3615	105000101						2017-10-14	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3616	105000101						2017-10-14	2019-10-28	Not enrolled in PRISM 1				Male	During initial screening		
+3617	105000101						2017-10-14	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3618	105000101						2017-10-14	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3619	105000101						2017-10-14	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3620	113005301						2017-10-12	2019-10-25	Not enrolled in PRISM 1				Male	During initial screening		
+3621	113005301						2017-10-12	2019-10-25	Not enrolled in PRISM 1				Female	During initial screening		
+3622	113005301						2017-10-12	2019-10-25	Not enrolled in PRISM 1				Female	During initial screening		
+3623	113005301						2017-10-12	2019-10-25	Not enrolled in PRISM 1				Male	During initial screening		
+3624	113005301						2017-10-12	2019-10-25	Not enrolled in PRISM 1				Male	During initial screening		
+3625	113005301						2017-10-12	2019-10-25	Not enrolled in PRISM 1				Male	During initial screening		
+3626	145001301						2017-10-15	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3627	145001301						2017-10-15	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3628	145001301						2017-10-15	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3629	145001301						2017-10-15	2019-10-28	Not enrolled in PRISM 1				Male	During initial screening		
+3630	145001301						2017-10-15	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3631	145001301						2017-10-15	2019-10-28	Not enrolled in PRISM 1				Male	During initial screening		
+3632	145001301						2017-10-15	2019-10-28	Not enrolled in PRISM 1				Male	During initial screening		
+3633	116003001						2017-10-16	2019-10-29	Not enrolled in PRISM 1				Male	During initial screening		
+3634	116003001						2017-10-16	2019-10-29	Not enrolled in PRISM 1				Female	During initial screening		
+3635	116003001						2017-10-16	2019-10-29	Not enrolled in PRISM 1				Female	During initial screening		
+3636	116003001						2017-10-16	2019-10-29	Not enrolled in PRISM 1				Male	During initial screening		
+3637	101008404						2017-10-15	2019-10-28	Not enrolled in PRISM 1				Male	During initial screening		
+3638	101008404						2017-10-15	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3639	101008404						2017-10-15	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3640	101008404						2017-10-15	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3641	118010701						2017-10-20	2019-11-02	Not enrolled in PRISM 1				Male	During initial screening		
+3642	118010701						2017-10-20	2019-11-02	Not enrolled in PRISM 1				Female	During initial screening		
+3643	118010701						2017-10-20	2019-11-02	Not enrolled in PRISM 1				Female	During initial screening		
+3644	118010701						2017-10-20	2019-11-02	Not enrolled in PRISM 1				Male	During initial screening		
+3645	136002504						2017-10-15	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3646	136002504						2017-10-15	2019-10-28	Not enrolled in PRISM 1				Male	During initial screening		
+3647	136002504						2017-10-15	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3648	136002504						2017-10-15	2019-10-28	Not enrolled in PRISM 1				Male	During initial screening		
+3649	141001901						2017-10-17	2019-10-25	Not enrolled in PRISM 1				Male	During initial screening		
+3650	141001901						2017-10-17	2019-10-25	Not enrolled in PRISM 1				Male	During initial screening		
+3651	141001901						2017-10-17	2019-10-25	Not enrolled in PRISM 1				Female	During initial screening		
+3652	128001701						2017-10-16	2019-10-24	Not enrolled in PRISM 1				Male	During initial screening		
+3653	128001701						2017-10-16	2019-10-24	Not enrolled in PRISM 1				Male	During initial screening		
+3654	132005501						2017-10-30	2019-11-07	Not enrolled in PRISM 1				Female	During initial screening		
+3655	132005501						2017-10-30	2019-11-07	Not enrolled in PRISM 1				Male	During initial screening		
+3656	132005501						2017-10-30	2019-11-07	Not enrolled in PRISM 1				Female	During initial screening		
+3657	131011801						2017-10-27	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3658	131011801						2017-10-27	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3659	143000601						2017-10-22	2019-10-30	Not enrolled in PRISM 1				Female	During initial screening		
+3660	143000601						2017-10-22	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3661	125006301						2017-10-19	2018-02-08	Not enrolled in PRISM 1		Unable to be located for > 4 month		Male	During initial screening	2018-02-08	
+3662	102018901						2017-10-20	2019-10-28	Not enrolled in PRISM 1				Male	During initial screening		
+3663	102018901						2017-10-20	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3664	102018901						2017-10-20	2017-10-20	Not enrolled in PRISM 1		Unable to be located for > 4 month		Male	During initial screening	2017-10-20	
+3665	102018901						2017-10-20	2019-10-28	Not enrolled in PRISM 1				Female	During initial screening		
+3666	102018901						2017-10-20	2019-10-28	Not enrolled in PRISM 1				Male	During initial screening		
+3667	107002801						2017-10-28	2018-07-07	Not enrolled in PRISM 1		Withdrawal of informed consent		Male	During initial screening	2018-07-07	
+3668	107002801						2017-10-28	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3669	107002801						2017-10-28	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3670	107002801						2017-10-28	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3671	107002801						2017-10-28	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3672	128014101						2017-10-18	2019-10-25	Not enrolled in PRISM 1				Male	During initial screening		
+3673	128014101						2017-10-18	2019-10-25	Not enrolled in PRISM 1				Female	During initial screening		
+3674	128014101						2017-10-18	2019-10-25	Not enrolled in PRISM 1				Male	During initial screening		
+3675	128014101						2017-10-18	2019-10-25	Not enrolled in PRISM 1				Female	During initial screening		
+3676	128014101						2017-10-18	2019-10-25	Not enrolled in PRISM 1				Female	During initial screening		
+3677	128011502						2017-10-25	2019-11-01	Not enrolled in PRISM 1				Male	During initial screening		
+3678	128011502						2017-10-25	2019-11-01	Not enrolled in PRISM 1				Female	During initial screening		
+3679	128011502						2017-10-25	2019-11-01	Not enrolled in PRISM 1				Female	During initial screening		
+3680	128011502						2017-10-25	2019-11-01	Not enrolled in PRISM 1				Female	During initial screening		
+3681	128011502						2017-10-25	2019-11-01	Not enrolled in PRISM 1				Male	During initial screening		
+3682	128011502						2017-10-25	2019-11-01	Not enrolled in PRISM 1				Male	During initial screening		
+3683	118009702						2017-10-29	2019-11-05	Not enrolled in PRISM 1				Male	During initial screening		
+3684	118009702						2017-10-29	2019-11-05	Not enrolled in PRISM 1				Female	During initial screening		
+3685	118009702						2017-10-29	2019-11-05	Not enrolled in PRISM 1				Female	During initial screening		
+3686	118009702						2017-10-29	2019-11-05	Not enrolled in PRISM 1				Female	During initial screening		
+3687	109004502						2017-10-28	2019-05-11	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	During initial screening	2019-05-11	
+3688	109004502						2017-10-28	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3689	109004502						2017-10-28	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3690	109004502						2017-10-28	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3691	109004502						2017-10-28	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3692	109004502						2017-10-28	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3693	128008201						2017-10-27	2019-09-27	Not enrolled in PRISM 1	2019-01-18	Unable to be located for > 4 month	Moved out of area	Male	During initial screening	2018-05-11	2019-09-24
+3694	128008201						2017-10-27	2019-11-03	Not enrolled in PRISM 1				Female	During initial screening		
+3695	128008201						2017-10-27	2019-11-03	Not enrolled in PRISM 1				Male	During initial screening		
+3696	128008201						2017-10-27	2019-11-03	Not enrolled in PRISM 1				Female	During initial screening		
+3697	128008201						2017-10-27	2019-11-03	Not enrolled in PRISM 1				Male	During initial screening		
+3698	128008201						2017-10-27	2017-11-24	Not enrolled in PRISM 1		Unable to be located for > 4 month		Female	During initial screening	2017-11-24	
+3699	128008201						2017-10-27	2019-11-03	Not enrolled in PRISM 1				Male	During initial screening		
+3700	107017901						2017-10-31	2019-11-07	Not enrolled in PRISM 1				Male	During initial screening		
+3701	107017901						2017-10-31	2019-11-07	Not enrolled in PRISM 1				Female	During initial screening		
+3702	107017901						2017-10-31	2019-11-07	Not enrolled in PRISM 1				Male	During initial screening		
+3703	107017901						2017-10-31	2019-11-07	Not enrolled in PRISM 1				Female	During initial screening		
+3704	121004301						2017-10-27	2019-11-02	Not enrolled in PRISM 1				Female	During initial screening		
+3705	121004301						2017-10-27	2019-11-02	Not enrolled in PRISM 1				Male	During initial screening		
+3706	121004301						2017-10-27	2019-11-02	Not enrolled in PRISM 1				Female	During initial screening		
+3707	121004301						2017-10-27	2019-11-02	Not enrolled in PRISM 1				Female	During initial screening		
+3708	121004301						2017-10-27	2018-12-21	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2018-12-21	
+3709	121004301						2017-10-27	2018-12-21	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2018-12-21	
+3710	121004301						2017-10-27	2019-11-02	Not enrolled in PRISM 1				Female	During initial screening		
+3711	141017101						2017-10-29	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3712	141017101						2017-10-29	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3713	141017101						2017-10-29	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3714	141017101						2017-10-29	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3715	141017101						2017-10-29	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3716	141017101						2017-10-29	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3717	136005801						2017-10-19	2019-10-25	Not enrolled in PRISM 1				Female	During initial screening		
+3718	136005801						2017-10-19	2018-12-13	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2018-12-13	
+3719	136005801						2017-10-19	2018-09-20	Not enrolled in PRISM 1		Unable to be located for > 4 month		Male	During initial screening	2018-09-20	
+3720	136005801						2017-10-19	2019-10-25	Not enrolled in PRISM 1				Female	During initial screening		
+3721	127010602						2017-10-31	2019-11-06	Not enrolled in PRISM 1				Male	During initial screening		
+3722	127010602						2017-10-31	2019-11-06	Not enrolled in PRISM 1				Female	During initial screening		
+3723	127010602						2017-10-31	2018-12-25	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2018-12-25	
+3724	127010602						2017-10-31	2019-11-06	Not enrolled in PRISM 1				Female	During initial screening		
+3725	127010602						2017-10-31	2019-11-06	Not enrolled in PRISM 1				Female	During initial screening		
+3726	127010602						2017-10-31	2019-11-06	Not enrolled in PRISM 1				Male	During initial screening		
+3727	127010602						2017-10-31	2019-11-06	Not enrolled in PRISM 1				Female	During initial screening		
+3728	112003901						2017-10-24	2019-10-30	Not enrolled in PRISM 1				Male	During initial screening		
+3729	112003901						2017-10-24	2019-10-30	Not enrolled in PRISM 1				Female	During initial screening		
+3730	112003901						2017-10-24	2019-10-30	Not enrolled in PRISM 1				Female	During initial screening		
+3731	112003901						2017-10-24	2019-10-30	Not enrolled in PRISM 1				Female	During initial screening		
+3732	141001201						2017-10-28	2019-11-03	Not enrolled in PRISM 1				Female	During initial screening		
+3733	141001201						2017-10-28	2019-11-03	Not enrolled in PRISM 1				Female	During initial screening		
+3734	141001201						2017-10-28	2019-11-03	Not enrolled in PRISM 1				Female	During initial screening		
+3735	141001201						2017-10-28	2019-11-03	Not enrolled in PRISM 1				Female	During initial screening		
+3736	141001201						2017-10-28	2019-11-03	Not enrolled in PRISM 1				Female	During initial screening		
+3737	141001201						2017-10-28	2019-11-03	Not enrolled in PRISM 1				Male	During initial screening		
+3738	131005201						2017-11-06	2019-11-07	Not enrolled in PRISM 1				Female	During initial screening		
+3739	131005201						2017-11-06	2019-03-25	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2019-03-25	
+3740	131005201						2017-11-06	2019-03-25	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	During initial screening	2019-03-25	
+3741	131005201						2017-11-06	2019-11-07	Not enrolled in PRISM 1				Female	During initial screening		
+3742	131005201						2017-11-06	2019-11-07	Not enrolled in PRISM 1				Male	During initial screening		
+3743	131005201						2017-11-06	2019-03-25	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2019-03-25	
+3744	131005201						2017-11-06	2019-11-07	Not enrolled in PRISM 1				Male	During initial screening		
+3745	131004001						2017-11-01	2019-11-02	Not enrolled in PRISM 1				Female	During initial screening		
+3746	131004001						2017-11-01	2019-11-02	Not enrolled in PRISM 1				Male	During initial screening		
+3747	131004001						2017-11-01	2019-11-02	Not enrolled in PRISM 1				Female	During initial screening		
+3748	131004001	Severe dehydration, severe vomiting	2018-05-09	Hospital	No	Yes	2017-11-01	2018-05-09	Not enrolled in PRISM 1		Death		Male	During initial screening	2018-05-09	
+3749	131004001						2017-11-01	2019-11-02	Not enrolled in PRISM 1				Male	During initial screening		
+3750	131004001						2017-11-01	2019-11-02	Not enrolled in PRISM 1				Female	During initial screening		
+3751	131004001						2017-11-01	2019-11-02	Not enrolled in PRISM 1				Female	During initial screening		
+3752	122002001						2017-11-04	2019-11-05	Not enrolled in PRISM 1				Male	During initial screening		
+3753	122002001						2017-11-04	2019-11-05	Not enrolled in PRISM 1				Female	During initial screening		
+3754	122002001						2017-11-04	2019-11-05	Not enrolled in PRISM 1				Female	During initial screening		
+3755	122002001						2017-11-04	2019-11-05	Not enrolled in PRISM 1				Male	During initial screening		
+3756	103015402						2017-10-26	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3757	103015402						2017-10-26	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3758	103015402						2017-10-26	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3759	103015402						2017-10-26	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3760	103015402						2017-10-26	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3761	103015402						2017-10-26	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3762	103015402						2017-10-26	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3763	132006001						2017-11-03	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3764	132006001						2017-11-03	2019-10-04	Not enrolled in PRISM 1	2019-06-14	Moved out of Nagongera sub-county	Moved out of area	Female	During initial screening	2019-01-25	2019-09-30
+3765	132006001						2017-11-03	2019-11-04	Not enrolled in PRISM 1	2019-06-14	Moved out of Nagongera sub-county		Male	During initial screening	2019-01-25	
+3766	132006001						2017-11-03	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3767	132006001						2017-11-03	2018-10-05	Not enrolled in PRISM 1		Unable to be located for > 4 month		Female	During initial screening	2018-10-05	
+3768	132006001						2017-11-03	2019-10-04	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2019-10-04	
+3769	132006001						2017-11-03	2019-10-04	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2019-10-04	
+3770	124006801						2017-11-02	2019-11-03	Not enrolled in PRISM 1				Female	During initial screening		
+3771	124006801						2017-11-02	2019-09-05	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	During initial screening	2019-09-05	
+3772	124006801						2017-11-02	2019-11-03	Not enrolled in PRISM 1				Male	During initial screening		
+3773	124006801						2017-11-02	2019-11-03	Not enrolled in PRISM 1				Female	During initial screening		
+3774	124006801						2017-11-02	2019-11-03	Not enrolled in PRISM 1				Male	During initial screening		
+3775	124006801						2017-11-02	2019-11-03	Not enrolled in PRISM 1				Female	During initial screening		
+3776	124006801						2017-11-02	2019-11-03	Not enrolled in PRISM 1				Male	During initial screening		
+3777	131006901						2017-10-24	2019-10-25	Not enrolled in PRISM 1				Female	During initial screening		
+3778	131006901						2017-10-24	2018-01-16	Not enrolled in PRISM 1		Unable to be located for > 4 month		Female	During initial screening	2018-01-16	
+3779	131006901						2017-10-24	2019-10-25	Not enrolled in PRISM 1				Female	During initial screening		
+3780	131006901						2017-10-24	2019-10-25	Not enrolled in PRISM 1				Male	During initial screening		
+3781	131006901						2017-10-24	2019-10-25	Not enrolled in PRISM 1				Female	During initial screening		
+3782	131006901						2017-10-24	2019-10-25	Not enrolled in PRISM 1				Female	During initial screening		
+3783	107013201						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3784	107013201						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3785	107013201						2017-10-27	2019-02-15	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2019-02-15	
+3786	107013201						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3787	107013201						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3788	107013201						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3789	107013201						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3790	121005001						2017-11-01	2019-11-01	Not enrolled in PRISM 1				Male	During initial screening		
+3791	121005001						2017-11-01	2019-11-01	Not enrolled in PRISM 1				Female	During initial screening		
+3792	121005001						2017-11-01	2019-11-01	Not enrolled in PRISM 1				Male	During initial screening		
+3793	121005001						2017-11-01	2019-11-01	Not enrolled in PRISM 1				Female	During initial screening		
+3794	130016701						2017-11-04	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3795	130016701						2017-11-04	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3796	130016701						2017-11-04	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3797	130016701						2017-11-04	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3798	130016701						2017-11-04	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3799	130016701						2017-11-04	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3800	130016701						2017-11-04	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3801	128000201						2017-10-24	2019-10-24	Not enrolled in PRISM 1				Male	During initial screening		
+3802	128000201						2017-10-24	2019-10-24	Not enrolled in PRISM 1				Female	During initial screening		
+3803	128000201						2017-10-24	2019-10-24	Not enrolled in PRISM 1				Male	During initial screening		
+3804	128000201						2017-10-24	2019-10-24	Not enrolled in PRISM 1				Male	During initial screening		
+3805	119000701						2017-10-27	2019-09-27	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2019-09-27	
+3806	119000701						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3807	119000701						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3808	119000701						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3809	119000701						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3810	119008201						2017-11-04	2019-11-04	Not enrolled in PRISM 1				Male	During initial screening		
+3811	119008201						2017-11-04	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3812	119008201						2017-11-04	2018-12-01	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	During initial screening	2018-12-01	
+3813	119008201						2017-11-04	2019-11-04	Not enrolled in PRISM 1				Female	During initial screening		
+3814	104003801						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3815	104003801						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3816	104003801						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3817	104003801						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3818	104003801						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3819	104003801						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Male	During initial screening		
+3820	104003801						2017-10-27	2019-10-27	Not enrolled in PRISM 1				Female	During initial screening		
+3821	108001201						2017-11-07	2019-11-01	Not enrolled in PRISM 1				Male	After initial screening		
+3822	134001001						2017-11-02	2019-10-25	Not enrolled in PRISM 1				Female	After initial screening		
+3823	114007303						2017-11-02	2019-10-25	Not enrolled in PRISM 1				Female	After initial screening		
+3824	102018901						2017-12-15	2019-10-28	Not enrolled in PRISM 1				Male	After initial screening		
+3825	102018901						2017-12-15	2019-10-28	Not enrolled in PRISM 1				Male	After initial screening		
+3826	132005801						2018-01-07	2019-10-30	Not enrolled in PRISM 1				Female	After initial screening		
+3827	132005801						2018-01-07	2019-10-30	Not enrolled in PRISM 1				Female	After initial screening		
+3828	118002402						2018-01-24	2018-06-08	Not enrolled in PRISM 1		Unable to be located for > 4 month		Female	After initial screening	2018-06-08	
+3829	128000201						2018-02-13	2019-08-27	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	After initial screening	2019-08-27	
+3830	112003901						2018-04-10	2019-06-04	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	After initial screening	2019-06-04	
+3831	131004001						2018-05-16	2019-11-02	Not enrolled in PRISM 1				Male	After initial screening		
+3832	129004401						2018-05-24	2019-10-27	Not enrolled in PRISM 1				Male	After initial screening		
+3833	129004401						2018-05-24	2019-10-27	Not enrolled in PRISM 1				Male	After initial screening		
+3834	129004401						2018-05-24	2019-10-27	Not enrolled in PRISM 1				Male	After initial screening		
+3835	118002402						2018-06-08	2019-01-17	Not enrolled in PRISM 1		Inability to comply with study schedules and procedures		Female	After initial screening	2019-01-17	
+3836	115007801						2018-06-16	2019-10-27	Not enrolled in PRISM 1				Male	After initial screening		
+3837	111007501						2018-06-25	2019-10-30	Not enrolled in PRISM 1				Male	After initial screening		
+3838	120005401						2018-07-16	2019-11-05	Not enrolled in PRISM 1				Male	After initial screening		
+3839	119000701						2018-07-07	2019-10-27	Not enrolled in PRISM 1				Male	After initial screening		
+3840	136002504						2018-07-21	2019-10-28	Not enrolled in PRISM 1				Female	After initial screening		
+3841	116003001						2018-07-23	2019-10-29	Not enrolled in PRISM 1				Male	After initial screening		
+3842	102018901						2018-07-27	2019-10-28	Not enrolled in PRISM 1				Female	After initial screening		
+3843	128008201						2018-08-03	2019-11-03	Not enrolled in PRISM 1				Male	After initial screening		
+3844	114011201						2018-08-09	2019-10-27	Not enrolled in PRISM 1				Female	After initial screening		
+3845	122007301						2018-08-17	2019-11-02	Not enrolled in PRISM 1				Male	After initial screening		
+3846	131011801						2018-08-31	2019-11-04	Not enrolled in PRISM 1				Female	After initial screening		
+3847	107002801						2018-12-22	2019-11-04	Not enrolled in PRISM 1				Female	After initial screening		
+3848	109004502						2018-12-22	2019-11-04	Not enrolled in PRISM 1				Female	After initial screening		
+3849	109004502						2018-12-22	2019-11-04	Not enrolled in PRISM 1				Female	After initial screening		
+3850	109004502						2018-12-22	2019-11-04	Not enrolled in PRISM 1				Male	After initial screening		
+3851	119008201						2019-01-01	2019-11-04	Not enrolled in PRISM 1				Female	After initial screening		
+3852	117009902						2019-01-06	2019-11-01	Not enrolled in PRISM 1				Female	After initial screening		
+3853	111007501						2019-01-07	2019-10-30	Not enrolled in PRISM 1				Male	After initial screening		
+3854	128014101						2019-01-09	2019-10-25	Not enrolled in PRISM 1				Female	After initial screening		
+3855	107017901						2019-01-22	2019-11-07	Not enrolled in PRISM 1				Female	After initial screening		
+3856	143001101						2019-02-01	2019-11-04	Not enrolled in PRISM 1				Female	After initial screening		
+3857	104009403						2019-02-06	2019-11-01	Not enrolled in PRISM 1				Female	After initial screening		
+3858	124007001						2019-01-30	2019-10-25	Not enrolled in PRISM 1				Female	After initial screening		
+3859	124007001						2019-01-30	2019-10-25	Not enrolled in PRISM 1				Female	After initial screening		
+3860	102018901						2019-02-08	2019-10-28	Not enrolled in PRISM 1				Female	After initial screening		
+3861	102018901						2019-02-08	2019-10-28	Not enrolled in PRISM 1				Female	After initial screening		
+3862	124007001						2019-02-27	2019-10-25	Not enrolled in PRISM 1				Male	After initial screening		
+3863	124007001						2019-02-27	2019-07-17	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Male	After initial screening	2019-07-17	
+3864	118010701						2019-04-10	2019-11-02	Not enrolled in PRISM 1				Female	After initial screening		
+3865	128011502						2019-04-10	2019-04-10	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	After initial screening	2019-04-10	
+3866	121005001						2019-04-17	2019-11-01	Not enrolled in PRISM 1				Female	After initial screening		
+3867	121005001						2019-04-17	2019-11-01	Not enrolled in PRISM 1				Male	After initial screening		
+3868	143006701						2019-04-16	2019-10-24	Not enrolled in PRISM 1				Female	After initial screening		
+3869	114004501						2019-05-28	2019-11-07	Not enrolled in PRISM 1				Female	After initial screening		
+3870	114004501						2019-05-28	2019-09-17	Not enrolled in PRISM 1		Moved out of Nagongera sub-county		Female	After initial screening	2019-09-17	
+3871	114004501						2019-05-28	2019-11-07	Not enrolled in PRISM 1				Female	After initial screening		
+3872	114004501						2019-05-28	2019-11-07	Not enrolled in PRISM 1				Female	After initial screening		
+3873	105000101						2019-05-25	2019-10-28	Not enrolled in PRISM 1				Male	After initial screening		
+3874	101008404						2019-05-26	2019-10-28	Not enrolled in PRISM 1				Male	After initial screening		
+3875	129001002						2019-05-30	2019-10-27	Not enrolled in PRISM 1				Male	After initial screening		
+3876	129001002						2019-05-30	2019-10-27	Not enrolled in PRISM 1				Male	After initial screening		
+3877	129001002						2019-05-30	2019-10-27	Not enrolled in PRISM 1				Female	After initial screening		
+3878	129001002						2019-05-30	2019-10-27	Not enrolled in PRISM 1				Female	After initial screening		
+3879	124006801						2019-06-13	2019-11-03	Not enrolled in PRISM 1				Male	After initial screening		
+3880	130016701						2019-06-15	2019-11-04	Not enrolled in PRISM 1				Male	After initial screening		
+3881	129001002						2019-06-20	2019-10-27	Not enrolled in PRISM 1				Female	After initial screening		
+3882	136002504						2019-07-21	2019-10-28	Not enrolled in PRISM 1				Male	After initial screening		
+3883	109004502						2019-08-04	2019-11-04	Not enrolled in PRISM 1				Male	After initial screening		
+3884	109004502						2019-08-04	2019-11-04	Not enrolled in PRISM 1				Female	After initial screening		
+3885	109004502						2019-08-04	2019-11-04	Not enrolled in PRISM 1				Male	After initial screening		

@@ -11,20 +11,39 @@ import plotly.graph_objects as go
 from pathlib import Path
 
 
-def create_interactive_viewer(site='nagongera', output_file='docs/index.html'):
+def create_interactive_viewer(site='nagongera', output_file='docs/index.html', is_prism2=False):
     """
     Create an interactive household viewer with dropdown navigation.
 
     Parameters
     ----------
     site : str
-        Site name ('nagongera', 'walukuba', or 'kihihi')
+        Site name ('nagongera', 'walukuba', 'kihihi', or 'prism2')
     output_file : str or Path
         Output HTML file path
+    is_prism2 : bool
+        If True, load PRISM2 data and use qPCR instead of LAMP
     """
 
-    print(f"Loading PRISM data for {site.upper()} site...")
-    df = pd.read_csv(f'data/prism_cleaned_{site}.csv', parse_dates=['date'])
+    if is_prism2:
+        print(f"Loading PRISM2 data...")
+        df = pd.read_csv('data/prism2_cleaned.csv', parse_dates=['date'])
+        # PRISM2 doesn't have age_at_enrollment, compute from first observation
+        first_obs = df.groupby('id').first().reset_index()[['id', 'age']]
+        first_obs = first_obs.rename(columns={'age': 'age_at_enrollment'})
+        df = df.merge(first_obs, on='id', how='left')
+        # Use qPCR positive column, create binary for submicroscopic detection
+        df['molecular_positive'] = (df['qpcr_positive'] == 'Positive') | (df['qpcr_density'] > 0)
+        df['molecular_tested'] = df['qpcr_positive'].isin(['Positive', 'Negative'])
+        molecular_label = 'qPCR'
+    else:
+        print(f"Loading PRISM data for {site.upper()} site...")
+        df = pd.read_csv(f'data/prism_cleaned_{site}.csv', parse_dates=['date'])
+        # Use LAMP for molecular detection
+        df['molecular_positive'] = df['LAMP'] == 'Positive'
+        df['molecular_tested'] = df['LAMP'].isin(['Positive', 'Negative'])
+        molecular_label = 'LAMP'
+
     print(f"Loaded {len(df)} observations for {df['id'].nunique()} participants")
 
     # Get global date range for locked x-axis with 4-month padding
@@ -53,7 +72,7 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html'):
     fig = go.Figure()
 
     # Color definitions
-    lamp_color = 'rgba(255, 237, 160, 0.6)'
+    molecular_color = 'rgba(255, 237, 160, 0.6)'  # Used for LAMP/qPCR positive submicroscopic
 
     # Process each household and create trace groups
     all_traces = []
@@ -96,39 +115,113 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html'):
             showlegend=(hh_idx == 0)
         ))
 
-        # 3. LAMP negative
-        lamp = household_data[household_data['LAMP'].isin(['Positive', 'Negative'])].copy()
-        lamp_neg = lamp[lamp['LAMP'] == 'Negative']
+        # 3. Molecular (LAMP/qPCR) negative
+        mol_tested = household_data[household_data['molecular_tested'] == True].copy()
+        mol_neg = mol_tested[mol_tested['molecular_positive'] == False]
         all_traces.append(go.Scatter(
-            x=lamp_neg['date'],
-            y=lamp_neg['idx'],
+            x=mol_neg['date'],
+            y=mol_neg['idx'],
             mode='markers',
             marker=dict(size=8, color='rgba(0,0,0,0)', line=dict(color='darkgray', width=1)),
-            name='LAMP negative',
-            hovertemplate='<b>LAMP Negative</b><br>Date: %{x|%Y-%m-%d}<br>ID: %{customdata[0]}<extra></extra>',
-            customdata=lamp_neg[['id']].values if len(lamp_neg) > 0 else [],
-            legendgroup='lamp_neg',
+            name=f'{molecular_label} negative',
+            hovertemplate=f'<b>{molecular_label} Negative</b><br>Date: %{{x|%Y-%m-%d}}<br>ID: %{{customdata[0]}}<extra></extra>',
+            customdata=mol_neg[['id']].values if len(mol_neg) > 0 else [],
+            legendgroup='mol_neg',
             showlegend=(hh_idx == 0)
         ))
 
-        # 4. LAMP positive
-        lamp_pos = lamp[lamp['LAMP'] == 'Positive']
-        all_traces.append(go.Scatter(
-            x=lamp_pos['date'],
-            y=lamp_pos['idx'],
-            mode='markers',
-            marker=dict(size=10, color=lamp_color, line=dict(color='darkgray', width=1)),
-            name='LAMP positive (submicroscopic)',
-            hovertemplate='<b>LAMP Positive</b><br>Date: %{x|%Y-%m-%d}<br>ID: %{customdata[0]}<extra></extra>',
-            customdata=lamp_pos[['id']].values if len(lamp_pos) > 0 else [],
-            legendgroup='lamp_pos',
-            showlegend=(hh_idx == 0)
-        ))
+        # 4. Molecular (LAMP/qPCR) positive - SUBMICROSCOPIC ONLY (molecular+, microscopy-)
+        mol_pos_submicro = mol_tested[(mol_tested['molecular_positive'] == True) &
+                                       (mol_tested['parasitedensity'] == 0)].copy()
 
-        # 5. Microscopy negative
-        micro_only = household_data[(~household_data['LAMP'].isin(['Positive', 'Negative', 'No result'])) &
-                                    (household_data['parasitedensity'].notna())].copy()
-        micro_neg = micro_only[micro_only['parasitedensity'] == 0]
+        if len(mol_pos_submicro) > 0 and is_prism2:
+            # For PRISM2: density-dependent sizing and rich tooltips
+            # Size based on qPCR density (log scale, min size 8, max ~18)
+            qpcr_dens = mol_pos_submicro['qpcr_density'].fillna(0).replace(0, 0.01)
+            marker_size = 8 + 2 * np.log10(qpcr_dens + 1)
+            marker_size = marker_size.clip(lower=8, upper=18)
+
+            # Build hover text with densities
+            hover_text = []
+            for _, row in mol_pos_submicro.iterrows():
+                def fmt_density(val):
+                    if pd.isna(val) or val == 0:
+                        return None
+                    if val >= 1e6:
+                        return f'{val/1e6:.1f}M'
+                    elif val >= 1e3:
+                        return f'{val/1e3:.1f}K'
+                    elif val >= 1:
+                        return f'{val:.1f}'
+                    else:
+                        return f'{val:.4f}'
+
+                lines = [f'<b>qPCR Positive (Submicroscopic)</b>',
+                         f'Date: {row["date"].strftime("%Y-%m-%d")}',
+                         f'ID: {int(row["id"])}']
+
+                qpcr_d = fmt_density(row.get('qpcr_density'))
+                if qpcr_d:
+                    lines.append(f'qPCR density: {qpcr_d} /µL')
+
+                gam_d = fmt_density(row.get('gametocytes_qpcr_density'))
+                if gam_d:
+                    lines.append(f'Gametocytes: {gam_d} /µL')
+
+                fem_d = fmt_density(row.get('gametocytes_female_density'))
+                if fem_d:
+                    lines.append(f'  Female: {fem_d} /µL')
+
+                male_d = fmt_density(row.get('gametocytes_male_density'))
+                if male_d:
+                    lines.append(f'  Male: {male_d} /µL')
+
+                # COI and haplotype
+                coi = row.get('coi')
+                if pd.notna(coi) and coi > 0:
+                    lines.append(f'COI: {int(coi)}')
+                hap = row.get('haplotype_id')
+                if pd.notna(hap) and 'pfama' in str(hap):
+                    hap_ids = [h.replace('pfama1.', '') for h in str(hap).replace('[', '').replace(']', '').replace('"', '').replace("'", "").split(',')]
+                    lines.append(f'pfama1: [{", ".join(hap_ids)}]')
+
+                # Membrane feeding results
+                mosq_dissected = row.get('mosquitoes_dissected')
+                mosq_oocyst = row.get('mosquitoes_oocyst_positive')
+                if pd.notna(mosq_dissected) and mosq_dissected > 0:
+                    lines.append(f'Feeding: {int(mosq_oocyst)}/{int(mosq_dissected)} oocyst+')
+
+                hover_text.append('<br>'.join(lines))
+
+            all_traces.append(go.Scatter(
+                x=mol_pos_submicro['date'],
+                y=mol_pos_submicro['idx'],
+                mode='markers',
+                marker=dict(size=marker_size, color=molecular_color, line=dict(color='darkgray', width=1)),
+                name=f'{molecular_label} positive (submicroscopic)',
+                hovertemplate='%{hovertext}<extra></extra>',
+                hovertext=hover_text,
+                legendgroup='mol_pos',
+                showlegend=(hh_idx == 0)
+            ))
+        else:
+            # For PRISM (LAMP) or empty: fixed size, simple tooltip
+            all_traces.append(go.Scatter(
+                x=mol_pos_submicro['date'],
+                y=mol_pos_submicro['idx'],
+                mode='markers',
+                marker=dict(size=10, color=molecular_color, line=dict(color='darkgray', width=1)),
+                name=f'{molecular_label} positive (submicroscopic)',
+                hovertemplate=f'<b>{molecular_label} Positive</b><br>Date: %{{x|%Y-%m-%d}}<br>ID: %{{customdata[0]}}<extra></extra>',
+                customdata=mol_pos_submicro[['id']].values if len(mol_pos_submicro) > 0 else [],
+                legendgroup='mol_pos',
+                showlegend=(hh_idx == 0)
+            ))
+
+        # 5. Microscopy negative (only for samples not tested by LAMP/qPCR - those are shown in trace 3)
+        micro_only_untested = household_data[(household_data['molecular_tested'] == False) &
+                                              (household_data['parasitedensity'].notna())].copy()
+        micro_neg = micro_only_untested[micro_only_untested['parasitedensity'] == 0]
         all_traces.append(go.Scatter(
             x=micro_neg['date'],
             y=micro_neg['idx'],
@@ -141,12 +234,25 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html'):
             showlegend=(hh_idx == 0)
         ))
 
-        # 6. Parasite positive
-        parasite_pos = micro_only[micro_only['parasitedensity'] > 0].copy()
+        # 6. Parasite positive (ALL microscopy positives, regardless of molecular testing)
+        parasite_pos = household_data[household_data['parasitedensity'] > 0].copy()
         if len(parasite_pos) > 0:
             marker_size = 50 * np.log10(parasite_pos['parasitedensity'])
             marker_size[marker_size < 10] = 10
             marker_size = marker_size / 4.5
+
+            # Helper for formatting density values
+            def fmt_dens(val):
+                if pd.isna(val) or val == 0:
+                    return None
+                if val >= 1e6:
+                    return f'{val/1e6:.1f}M'
+                elif val >= 1e3:
+                    return f'{val/1e3:.1f}K'
+                elif val >= 1:
+                    return f'{val:.1f}'
+                else:
+                    return f'{val:.4f}'
 
             hover_text = []
             for _, row in parasite_pos.iterrows():
@@ -162,12 +268,50 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html'):
                 extra_info = []
                 if row['fever'] == 'Yes':
                     extra_info.append('Fever: Yes')
-                if row['gametocytes'] == 'Yes':
-                    extra_info.append('Gametocytes: Yes')
-                if pd.notna(row['antimalarial']) and row['antimalarial'] != 'No malaria medications given' and row['antimalarial'] != '':
+
+                # Gametocytes - show density for PRISM2, just Yes/No for PRISM
+                if is_prism2:
+                    gam_micro_d = fmt_dens(row.get('gametocyte_density'))
+                    if gam_micro_d:
+                        extra_info.append(f'Gametocytes (microscopy): {gam_micro_d} /µL')
+                    elif row.get('gametocytes') == 'Yes':
+                        extra_info.append('Gametocytes (microscopy): Yes')
+                else:
+                    if row.get('gametocytes') == 'Yes':
+                        extra_info.append('Gametocytes: Yes')
+
+                # For PRISM2: add qPCR densities
+                if is_prism2:
+                    qpcr_d = fmt_dens(row.get('qpcr_density'))
+                    if qpcr_d:
+                        extra_info.append(f'qPCR density: {qpcr_d} /µL')
+                    gam_d = fmt_dens(row.get('gametocytes_qpcr_density'))
+                    if gam_d:
+                        extra_info.append(f'Gametocytes (qPCR): {gam_d} /µL')
+                    fem_d = fmt_dens(row.get('gametocytes_female_density'))
+                    if fem_d:
+                        extra_info.append(f'  Female: {fem_d} /µL')
+                    male_d = fmt_dens(row.get('gametocytes_male_density'))
+                    if male_d:
+                        extra_info.append(f'  Male: {male_d} /µL')
+                    # COI and haplotype
+                    coi = row.get('coi')
+                    if pd.notna(coi) and coi > 0:
+                        extra_info.append(f'COI: {int(coi)}')
+                    hap = row.get('haplotype_id')
+                    if pd.notna(hap) and 'pfama' in str(hap):
+                        hap_ids = [h.replace('pfama1.', '') for h in str(hap).replace('[', '').replace(']', '').replace('"', '').replace("'", "").split(',')]
+                        extra_info.append(f'pfama1: [{", ".join(hap_ids)}]')
+                    # Membrane feeding results
+                    mosq_dissected = row.get('mosquitoes_dissected')
+                    mosq_oocyst = row.get('mosquitoes_oocyst_positive')
+                    if pd.notna(mosq_dissected) and mosq_dissected > 0:
+                        extra_info.append(f'Feeding: {int(mosq_oocyst)}/{int(mosq_dissected)} oocyst+')
+
+                if pd.notna(row.get('antimalarial')) and row.get('antimalarial') != 'No malaria medications given' and row.get('antimalarial') != '' and row.get('antimalarial') != 'Not applicable - no malaria diagnosed today':
                     # Shorten the treatment text for display
                     treatment = row['antimalarial']
-                    if 'Artmether-lumefantrine' in treatment:
+                    if 'Artmether-lumefantrine' in treatment or 'Artemether-lumefantrine' in treatment:
                         treatment = 'AL treatment'
                     elif 'Quinine' in treatment and 'complicated' in treatment:
                         treatment = 'Quinine (complicated)'
@@ -179,7 +323,7 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html'):
                         treatment = 'Artesunate (complicated)'
                     extra_info.append(f'Treatment: {treatment}')
 
-                hover_line = f"<b>Parasite Positive</b><br>Density: {txt} /µL<br>Date: {row['date'].strftime('%Y-%m-%d')}<br>ID: {int(row['id'])}"
+                hover_line = f"<b>Parasite Positive</b><br>Microscopy: {txt} /µL<br>Date: {row['date'].strftime('%Y-%m-%d')}<br>ID: {int(row['id'])}"
                 if extra_info:
                     hover_line += '<br>' + '<br>'.join(extra_info)
                 hover_text.append(hover_line)
@@ -211,25 +355,67 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html'):
                 showlegend=(hh_idx == 0)
             ))
 
-            # 7. Gametocytes
+            # 7. Gametocytes (with variable border width for PRISM2 based on oocyst prevalence)
             parasite_pos_gam = parasite_pos[parasite_pos['gametocytes'] == 'Yes'].copy()
             if len(parasite_pos_gam) > 0:
                 marker_size_gam = 50 * np.log10(parasite_pos_gam['parasitedensity'])
                 marker_size_gam[marker_size_gam < 10] = 10
                 marker_size_gam = marker_size_gam / 4.5
 
-                all_traces.append(go.Scatter(
-                    x=parasite_pos_gam['date'],
-                    y=parasite_pos_gam['idx'],
-                    mode='markers',
-                    marker=dict(size=marker_size_gam + 2, color='rgba(0,0,0,0)', line=dict(color='olive', width=2)),
-                    name='Gametocytes detected',
-                    hoverinfo='skip',
-                    legendgroup='gametocytes',
-                    showlegend=(hh_idx == 0)
-                ))
+                if is_prism2:
+                    # Variable border width based on oocyst prevalence
+                    # >50% = width 3, >5% = width 2, >0% = width 1, no feeding/0% = width 2 (default)
+                    oocyst_prev = parasite_pos_gam['oocyst_prevalence'].fillna(-1)
+
+                    # Split into categories
+                    high_inf = parasite_pos_gam[oocyst_prev > 0.5]
+                    med_inf = parasite_pos_gam[(oocyst_prev > 0.05) & (oocyst_prev <= 0.5)]
+                    low_inf = parasite_pos_gam[(oocyst_prev > 0) & (oocyst_prev <= 0.05)]
+                    no_inf = parasite_pos_gam[oocyst_prev <= 0]  # includes no feeding data
+
+                    # Add traces for each category
+                    for subset, width, show_legend in [
+                        (high_inf, 4, False),   # >50% infectious
+                        (med_inf, 3, False),    # >5% infectious
+                        (low_inf, 2, False),    # >0% infectious
+                        (no_inf, 1.5, (hh_idx == 0))  # no feeding or 0%
+                    ]:
+                        if len(subset) > 0:
+                            sz = 50 * np.log10(subset['parasitedensity'])
+                            sz[sz < 10] = 10
+                            sz = sz / 4.5
+                            all_traces.append(go.Scatter(
+                                x=subset['date'],
+                                y=subset['idx'],
+                                mode='markers',
+                                marker=dict(size=sz + 2, color='rgba(0,0,0,0)',
+                                           line=dict(color='olive', width=width)),
+                                name='Gametocytes detected',
+                                hoverinfo='skip',
+                                legendgroup='gametocytes',
+                                showlegend=show_legend
+                            ))
+                        else:
+                            all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
+                else:
+                    # PRISM: single trace with fixed width
+                    all_traces.append(go.Scatter(
+                        x=parasite_pos_gam['date'],
+                        y=parasite_pos_gam['idx'],
+                        mode='markers',
+                        marker=dict(size=marker_size_gam + 2, color='rgba(0,0,0,0)', line=dict(color='olive', width=2)),
+                        name='Gametocytes detected',
+                        hoverinfo='skip',
+                        legendgroup='gametocytes',
+                        showlegend=(hh_idx == 0)
+                    ))
             else:
-                all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
+                if is_prism2:
+                    # Add 4 empty traces for PRISM2 to maintain indexing
+                    for _ in range(4):
+                        all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
+                else:
+                    all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
         else:
             # Add empty traces to maintain consistent indexing
             all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
@@ -350,7 +536,7 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html'):
             )
         ],
         title=dict(
-            text=f"PRISM Household Viewer - {site.upper()} ({len(household_ids)} households)",
+            text=f"{'PRISM2' if is_prism2 else 'PRISM'} Household Viewer - {site.upper()} ({len(household_ids)} households)",
             font=dict(size=18),
             x=0.5,
             xanchor='center'
@@ -552,7 +738,7 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html'):
 
 
 if __name__ == '__main__':
-    # Generate viewer for each site
+    # Generate viewer for each PRISM site
     sites = ['nagongera', 'walukuba', 'kihihi']
 
     for site in sites:
@@ -561,6 +747,12 @@ if __name__ == '__main__':
         print("=" * 80)
         create_interactive_viewer(site=site, output_file=f'docs/{site}.html')
 
+    # Generate viewer for PRISM2
+    print("\n" + "=" * 80)
+    print("GENERATING VIEWER FOR PRISM2 (NAGONGERA)")
+    print("=" * 80)
+    create_interactive_viewer(site='nagongera', output_file='docs/nagongera_prism2.html', is_prism2=True)
+
     print("\n" + "=" * 80)
     print("GENERATION COMPLETE")
     print("=" * 80)
@@ -568,3 +760,4 @@ if __name__ == '__main__':
     print("  - docs/nagongera.html")
     print("  - docs/walukuba.html")
     print("  - docs/kihihi.html")
+    print("  - docs/nagongera_prism2.html")
