@@ -4,6 +4,8 @@ Interactive web-based visualization of household-level malaria surveillance data
 
 **🌐 [View Live Interactive Visualization](https://edwenger.github.io/prism-data-viewer/)**
 
+![PRISM2 data visualization screenshot](docs/PRISM2-data-visualization-screenshot.png)
+
 ## Overview
 
 This project provides an interactive, web-based viewer for exploring malaria infection patterns within households across three transmission intensity sites in Uganda:
