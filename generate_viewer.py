@@ -36,6 +36,72 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
         df['molecular_positive'] = (df['qpcr_positive'] == 'Positive') | (df['qpcr_density'] > 0)
         df['molecular_tested'] = df['qpcr_positive'].isin(['Positive', 'Negative'])
         molecular_label = 'qPCR'
+
+        # Load household entomology (light trap) data
+        print("Loading PRISM2 light trap data...")
+        trap_df = pd.read_csv('data/PRISM2_cohort_Household_repeated_measures.txt',
+                              sep='\t', low_memory=False)
+        trap_df = trap_df.rename(columns={
+            'Collection date [EUPATH_0020003]': 'date',
+            'Female Anopheles count [EUPATH_0000135]': 'female_anopheles',
+            'Collection working [EUPATH_0020180]': 'working',
+            'Anopheles dissected for parity count [EUPATH_0000194]': 'dissected_parity',
+            'Anopheles parous count [EUPATH_0000196]': 'parous',
+            'Anopheles nulliparous count [EUPATH_0000195]': 'nulliparous',
+            'Gravid Anopheles gambiae count [EUPATH_0000198]': 'gravid_gambiae',
+            'Gravid Anopheles funestus count [EUPATH_0000197]': 'gravid_funestus',
+            'Gravid or semigravid other Anopheles species count [EUPATH_0020086]': 'gravid_other',
+        })
+        trap_df['date'] = pd.to_datetime(trap_df['date'])
+        trap_df['gravid'] = (trap_df['gravid_gambiae'].fillna(0) +
+                             trap_df['gravid_funestus'].fillna(0) +
+                             trap_df['gravid_other'].fillna(0))
+        # Filter to working traps with non-null counts
+        trap_df = trap_df[(trap_df['working'] == 'Working') & trap_df['female_anopheles'].notna()]
+        # Aggregate to household-date: mean/sum across rooms/traps
+        trap_summary = trap_df.groupby(['Household_Id', 'date']).agg(
+            mean_anopheles=('female_anopheles', 'mean'),
+            n_traps=('female_anopheles', 'count'),
+            total_dissected=('dissected_parity', 'sum'),
+            total_parous=('parous', 'sum'),
+            total_nulliparous=('nulliparous', 'sum'),
+            total_gravid=('gravid', 'sum'),
+        ).reset_index()
+        trap_summary['parous_frac'] = np.where(
+            trap_summary['total_dissected'] > 0,
+            trap_summary['total_parous'] / trap_summary['total_dissected'],
+            np.nan
+        )
+
+        # Load sporozoite data from participant repeated measures
+        print("Loading PRISM2 sporozoite data...")
+        part_ento = pd.read_csv(
+            'data/PRISM2_cohort_Participant_repeated_measures.txt',
+            sep='\t', low_memory=False,
+            usecols=['Household_Id', 'Observation date [EUPATH_0004991]',
+                     'Observation type [BFO_0000015]',
+                     'Mosquitoes with sporozoites count [EUPATH_0020261]',
+                     'Sleeping room number [EUPATH_0020170]'])
+        part_ento = part_ento[part_ento['Observation type [BFO_0000015]'] == 'Entomology']
+        part_ento = part_ento.rename(columns={
+            'Observation date [EUPATH_0004991]': 'date',
+            'Mosquitoes with sporozoites count [EUPATH_0020261]': 'sporozoite_pos',
+            'Sleeping room number [EUPATH_0020170]': 'room',
+        })
+        part_ento['date'] = pd.to_datetime(part_ento['date'])
+        # Deduplicate to room level, then sum across rooms to household-date
+        sporo_room = part_ento.groupby(['Household_Id', 'date', 'room']).agg(
+            sporozoite_pos=('sporozoite_pos', 'max')).reset_index()
+        sporo_hh = sporo_room.groupby(['Household_Id', 'date']).agg(
+            sporozoite_pos=('sporozoite_pos', 'sum')).reset_index()
+        trap_summary = trap_summary.merge(
+            sporo_hh[['Household_Id', 'date', 'sporozoite_pos']],
+            on=['Household_Id', 'date'], how='left')
+        trap_summary['sporozoite_pos'] = trap_summary['sporozoite_pos'].fillna(0)
+
+        print(f"  {len(trap_summary)} household-nights of trap data across "
+              f"{trap_summary['Household_Id'].nunique()} households")
+        print(f"  {int(trap_summary['sporozoite_pos'].sum())} sporozoite-positive events")
     else:
         print(f"Loading PRISM data for {site.upper()} site...")
         df = pd.read_csv(f'data/prism_cleaned_{site}.csv', parse_dates=['date'])
@@ -421,6 +487,85 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
             all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
             all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
 
+        # 8. Mosquito trap counts (PRISM2 only)
+        if is_prism2:
+            hh_traps = trap_summary[trap_summary['Household_Id'] == household_id].copy()
+            if len(hh_traps) > 0:
+                mosquito_y = -1
+                marker_size_mosq = np.maximum(3, 3.75 * np.sqrt(hh_traps['mean_anopheles']))
+
+                # Color gradient: forest green (0% parous) → olive (100% parous)
+                # Forest green: rgb(34, 139, 34), Olive: rgb(128, 128, 0)
+                colors_mosq = []
+                hover_text_mosq = []
+                for _, row in hh_traps.iterrows():
+                    # Color based on parous fraction
+                    frac = row['parous_frac']
+                    if pd.isna(frac):
+                        colors_mosq.append('rgba(34, 139, 34, 0.5)')
+                    else:
+                        r = int(34 + 94 * frac)
+                        g = int(139 - 11 * frac)
+                        b = int(34 - 34 * frac)
+                        colors_mosq.append(f'rgba({r}, {g}, {b}, 0.5)')
+
+                    # Tooltip
+                    avg = row['mean_anopheles']
+                    lines = [f'<b>CDC Light Trap</b>',
+                             f'Date: {row["date"].strftime("%Y-%m-%d")}',
+                             f'Avg female Anopheles/trap: {avg:.1f}',
+                             f'Traps: {int(row["n_traps"])}']
+
+                    dissected = row.get('total_dissected', 0)
+                    if dissected > 0:
+                        parous = int(row['total_parous'])
+                        nullip = int(row['total_nulliparous'])
+                        lines.append(f'Parity: {parous}/{int(dissected)} parous ({frac:.0%})')
+                        lines.append(f'Nulliparous: {nullip}')
+                    gravid = int(row.get('total_gravid', 0))
+                    if gravid > 0:
+                        lines.append(f'Gravid: {gravid}')
+
+                    sporo = row.get('sporozoite_pos', 0)
+                    if sporo > 0:
+                        lines.append(f'SPOROZOITE POSITIVE: {int(sporo)}')
+
+                    hover_text_mosq.append('<br>'.join(lines))
+
+                all_traces.append(go.Scatter(
+                    x=hh_traps['date'],
+                    y=[mosquito_y] * len(hh_traps),
+                    mode='markers',
+                    marker=dict(
+                        size=marker_size_mosq,
+                        color=colors_mosq,
+                    ),
+                    name='Mosquito traps',
+                    hovertemplate='%{hovertext}<extra></extra>',
+                    hovertext=hover_text_mosq,
+                    legendgroup='mosquitoes',
+                    showlegend=(hh_idx == 0)
+                ))
+
+                # 9. Sporozoite-positive red dots
+                sporo_nights = hh_traps[hh_traps['sporozoite_pos'] > 0]
+                if len(sporo_nights) > 0:
+                    all_traces.append(go.Scatter(
+                        x=sporo_nights['date'],
+                        y=[mosquito_y] * len(sporo_nights),
+                        mode='markers',
+                        marker=dict(size=5, color='red'),
+                        name='Sporozoite positive',
+                        hoverinfo='skip',
+                        legendgroup='sporozoite',
+                        showlegend=(hh_idx == 0)
+                    ))
+                else:
+                    all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
+            else:
+                all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
+                all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
+
         trace_end = len(all_traces)
 
         # Create y-axis labels for this household
@@ -438,8 +583,12 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
         all_y_labels = ['' if i not in y_positions else y_labels[y_positions.index(i)]
                         for i in all_y_positions]
 
-        y_positions_with_bottom = all_y_positions
-        y_labels_with_bottom = all_y_labels
+        if is_prism2:
+            y_positions_with_bottom = [-1] + all_y_positions
+            y_labels_with_bottom = ['Traps'] + all_y_labels
+        else:
+            y_positions_with_bottom = all_y_positions
+            y_labels_with_bottom = all_y_labels
 
         # Get household stats
         n_members = multi_person.loc[household_id, 'n_members']
@@ -480,7 +629,7 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
                     "title": f"Household {hh_info['household_id']} - {int(hh_info['n_members'])} members, {int(hh_info['n_infections'])} microscopy-positive observations",
                     "yaxis.tickvals": hh_info['y_positions'],
                     "yaxis.ticktext": hh_info['y_labels'],
-                    "yaxis.range": [-0.5, hh_info['n_unique_ids'] - 0.5],
+                    "yaxis.range": [-1.8 if is_prism2 else -0.5, hh_info['n_unique_ids'] - 0.5],
                     "xaxis.range": [global_date_min, global_date_max]
                 }
             ]
@@ -514,8 +663,12 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
     all_y_labels = ['' if i not in y_positions else y_labels[y_positions.index(i)]
                     for i in all_y_positions]
 
-    y_positions = all_y_positions
-    y_labels = all_y_labels
+    if is_prism2:
+        y_positions = [-1] + all_y_positions
+        y_labels = ['Traps'] + all_y_labels
+    else:
+        y_positions = all_y_positions
+        y_labels = all_y_labels
 
     # Update layout with dropdown
     fig.update_layout(
@@ -554,7 +707,7 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
             ticktext=y_labels,
             gridcolor='lightgray',
             gridwidth=0.5,
-            range=[-0.5, len(unique_ids) - 0.5],
+            range=[-1.8 if is_prism2 else -0.5, len(unique_ids) - 0.5],
             showgrid=True,
             griddash='solid',
             zeroline=True,
