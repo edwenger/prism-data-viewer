@@ -25,6 +25,8 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
         If True, load PRISM2 data and use qPCR instead of LAMP
     """
 
+    trap_summary = None
+
     if is_prism2:
         print(f"Loading PRISM2 data...")
         df = pd.read_csv('data/prism2_cleaned.csv', parse_dates=['date'])
@@ -109,6 +111,47 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
         df['molecular_positive'] = df['LAMP'] == 'Positive'
         df['molecular_tested'] = df['LAMP'].isin(['Positive', 'Negative'])
         molecular_label = 'LAMP'
+
+        # Load PRISM1 household entomology (light trap) data
+        print(f"Loading PRISM1 light trap data for {site.upper()}...")
+        trap_df = pd.read_csv('data/PRISM_cohort_Household_repeated_measures.txt',
+                              sep='\t', low_memory=False)
+        trap_df = trap_df.rename(columns={
+            'Collection date [EUPATH_0020003]': 'date',
+            'Female Anopheles count [EUPATH_0000135]': 'female_anopheles',
+            'Anopheles dissected for parity count [EUPATH_0000194]': 'dissected_parity',
+            'Anopheles parous count [EUPATH_0000196]': 'parous',
+            'Anopheles nulliparous count [EUPATH_0000195]': 'nulliparous',
+            'Gravid Anopheles gambiae count [EUPATH_0000198]': 'gravid_gambiae',
+            'Gravid Anopheles funestus count [EUPATH_0000197]': 'gravid_funestus',
+            'Sporozoite-pos Anopheles count [EUPATH_0000218]': 'sporozoite_pos',
+        })
+        trap_df['date'] = pd.to_datetime(trap_df['date'])
+        trap_df['gravid'] = (trap_df['gravid_gambiae'].fillna(0) +
+                             trap_df['gravid_funestus'].fillna(0))
+        # Filter to non-null female Anopheles counts (no "working" column in PRISM1)
+        trap_df = trap_df[trap_df['female_anopheles'].notna()]
+        # Filter to households present in this site's clinical data
+        site_households = df['Household_Id'].unique()
+        trap_df = trap_df[trap_df['Household_Id'].isin(site_households)]
+        # Aggregate to household-date level
+        trap_summary = trap_df.groupby(['Household_Id', 'date']).agg(
+            mean_anopheles=('female_anopheles', 'mean'),
+            n_traps=('female_anopheles', 'count'),
+            total_dissected=('dissected_parity', 'sum'),
+            total_parous=('parous', 'sum'),
+            total_nulliparous=('nulliparous', 'sum'),
+            total_gravid=('gravid', 'sum'),
+            sporozoite_pos=('sporozoite_pos', 'sum'),
+        ).reset_index()
+        trap_summary['parous_frac'] = np.where(
+            trap_summary['total_dissected'] > 0,
+            trap_summary['total_parous'] / trap_summary['total_dissected'],
+            np.nan
+        )
+        print(f"  {len(trap_summary)} household-nights of trap data across "
+              f"{trap_summary['Household_Id'].nunique()} households")
+        print(f"  {int(trap_summary['sporozoite_pos'].sum())} sporozoite-positive events")
 
     print(f"Loaded {len(df)} observations for {df['id'].nunique()} participants")
 
@@ -487,8 +530,8 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
             all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
             all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
 
-        # 8. Mosquito trap counts (PRISM2 only)
-        if is_prism2:
+        # 8. Mosquito trap counts
+        if trap_summary is not None:
             hh_traps = trap_summary[trap_summary['Household_Id'] == household_id].copy()
             if len(hh_traps) > 0:
                 mosquito_y = -1
@@ -504,9 +547,10 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
                     if pd.isna(frac):
                         colors_mosq.append('rgba(34, 139, 34, 0.5)')
                     else:
-                        r = int(34 + 94 * frac)
-                        g = int(139 - 11 * frac)
-                        b = int(34 - 34 * frac)
+                        frac_clamped = max(0.0, min(1.0, frac))
+                        r = int(34 + 94 * frac_clamped)
+                        g = int(139 - 11 * frac_clamped)
+                        b = int(34 - 34 * frac_clamped)
                         colors_mosq.append(f'rgba({r}, {g}, {b}, 0.5)')
 
                     # Tooltip
@@ -583,7 +627,7 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
         all_y_labels = ['' if i not in y_positions else y_labels[y_positions.index(i)]
                         for i in all_y_positions]
 
-        if is_prism2:
+        if trap_summary is not None:
             y_positions_with_bottom = [-1] + all_y_positions
             y_labels_with_bottom = ['Traps'] + all_y_labels
         else:
@@ -629,7 +673,7 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
                     "title": f"Household {hh_info['household_id']} - {int(hh_info['n_members'])} members, {int(hh_info['n_infections'])} microscopy-positive observations",
                     "yaxis.tickvals": hh_info['y_positions'],
                     "yaxis.ticktext": hh_info['y_labels'],
-                    "yaxis.range": [-1.8 if is_prism2 else -0.5, hh_info['n_unique_ids'] - 0.5],
+                    "yaxis.range": [-1.8 if trap_summary is not None else -0.5, hh_info['n_unique_ids'] - 0.5],
                     "xaxis.range": [global_date_min, global_date_max]
                 }
             ]
@@ -663,7 +707,7 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
     all_y_labels = ['' if i not in y_positions else y_labels[y_positions.index(i)]
                     for i in all_y_positions]
 
-    if is_prism2:
+    if trap_summary is not None:
         y_positions = [-1] + all_y_positions
         y_labels = ['Traps'] + all_y_labels
     else:
@@ -707,7 +751,7 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
             ticktext=y_labels,
             gridcolor='lightgray',
             gridwidth=0.5,
-            range=[-1.8 if is_prism2 else -0.5, len(unique_ids) - 0.5],
+            range=[-1.8 if trap_summary is not None else -0.5, len(unique_ids) - 0.5],
             showgrid=True,
             griddash='solid',
             zeroline=True,
