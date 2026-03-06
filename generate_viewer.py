@@ -8,7 +8,20 @@ that can be hosted on GitHub Pages.
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
+import colorsys
+import json
 from pathlib import Path
+
+
+def generate_haplotype_color_map():
+    colors = {}
+    for i in range(51):
+        hue = (i * 0.618033988749895) % 1.0
+        sat = 0.9 if i % 2 == 0 else 0.55
+        val = 0.85 if i % 3 != 2 else 0.65
+        r, g, b = colorsys.hsv_to_rgb(hue, sat, val)
+        colors[f'pfama1.{i:02d}'] = f'rgb({int(r*255)},{int(g*255)},{int(b*255)})'
+    return colors
 
 
 def create_interactive_viewer(site='nagongera', output_file='docs/index.html', is_prism2=False):
@@ -104,6 +117,29 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
         print(f"  {len(trap_summary)} household-nights of trap data across "
               f"{trap_summary['Household_Id'].nunique()} households")
         print(f"  {int(trap_summary['sporozoite_pos'].sum())} sporozoite-positive events")
+
+        # Pre-compute haplotype data
+        hap_color_map = generate_haplotype_color_map()
+        df['haplotype_list'] = df['haplotype_id'].apply(
+            lambda x: json.loads(x) if pd.notna(x) and x.startswith('[') else [])
+
+        # Build per-individual haplotype registry (all haplotypes ever observed)
+        individual_all_haplotypes = {}
+        for pid, grp in df[df['haplotype_list'].apply(len) > 0].groupby('id'):
+            all_haps = set()
+            for haps in grp['haplotype_list']:
+                all_haps.update(haps)
+            individual_all_haplotypes[pid] = sorted(all_haps)
+
+        # Compute max haplotype traces per household for padding
+        max_hap_traces_per_hh = 0
+        for hh_id in df['Household_Id'].unique():
+            hh_data = df[(df['Household_Id'] == hh_id) & (df['haplotype_list'].apply(len) > 0)]
+            hh_haps = set()
+            for haps in hh_data['haplotype_list']:
+                hh_haps.update(haps)
+            max_hap_traces_per_hh = max(max_hap_traces_per_hh, len(hh_haps))
+        print(f"  Max haplotype traces per household: {max_hap_traces_per_hh}")
     else:
         print(f"Loading PRISM data for {site.upper()} site...")
         df = pd.read_csv(f'data/prism_cleaned_{site}.csv', parse_dates=['date'])
@@ -610,6 +646,85 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
                 all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
                 all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
 
+        # 10. Haplotype indicators (PRISM2 only)
+        hap_trace_start = len(all_traces)
+        if is_prism2:
+            hh_hap_data = household_data[household_data['haplotype_list'].apply(len) > 0]
+            hh_unique_haps = sorted(set(h for haps in hh_hap_data['haplotype_list'] for h in haps))
+            n_hap_traces = 0
+
+            # Grid layout: max 5 rows per column, balanced distribution
+            max_per_col = 5
+            col_offset_days = pd.Timedelta(days=5)
+            y_base = 0.25  # shifted up from 0.15
+            band_height = 0.30
+            row_height = band_height / max_per_col
+
+            # Pre-compute balanced grid mapping per individual
+            def balanced_grid(slot_k, n_total):
+                """Map slot index to (row, col) with balanced column fill."""
+                n_cols = (n_total - 1) // max_per_col + 1
+                rows_per_col = n_total // n_cols
+                extra = n_total % n_cols
+                # First 'extra' columns get rows_per_col+1, rest get rows_per_col
+                col = 0
+                remaining = slot_k
+                for c in range(n_cols):
+                    col_size = rows_per_col + (1 if c < extra else 0)
+                    if remaining < col_size:
+                        return remaining, c, n_cols
+                    remaining -= col_size
+                    col = c + 1
+                return remaining, col, n_cols
+
+            for haplotype in hh_unique_haps:
+                # Rows where this haplotype is present
+                mask = hh_hap_data['haplotype_list'].apply(lambda hl: haplotype in hl)
+                subset = hh_hap_data[mask]
+                if len(subset) == 0:
+                    all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
+                    n_hap_traces += 1
+                    continue
+
+                # Compute x/y positions using per-individual fixed slot with balanced grid
+                x_vals = []
+                y_vals = []
+                for _, row in subset.iterrows():
+                    pid = row['id']
+                    idx = row['idx']
+                    ind_haps = individual_all_haplotypes.get(pid, [haplotype])
+                    slot_k = ind_haps.index(haplotype)
+                    grid_row, grid_col, n_cols = balanced_grid(slot_k, len(ind_haps))
+                    y_val = idx + y_base + (grid_row + 0.5) * row_height
+                    x_val = row['date'] + (grid_col - (n_cols - 1) / 2) * col_offset_days
+                    y_vals.append(y_val)
+                    x_vals.append(x_val)
+
+                hover_text = [
+                    f'<b>{haplotype}</b><br>Date: {row["date"].strftime("%Y-%m-%d")}<br>ID: {int(row["id"])}'
+                    for _, row in subset.iterrows()
+                ]
+
+                all_traces.append(go.Scatter(
+                    x=x_vals,
+                    y=y_vals,
+                    mode='markers',
+                    marker=dict(
+                        symbol='asterisk',
+                        size=6,
+                        color='rgba(0,0,0,0)',
+                        line=dict(width=1, color=hap_color_map.get(haplotype, 'gray'))
+                    ),
+                    showlegend=False,
+                    hovertemplate='%{hovertext}<extra></extra>',
+                    hovertext=hover_text,
+                ))
+                n_hap_traces += 1
+
+            # Pad to max_hap_traces_per_hh for consistent trace indexing
+            for _ in range(max_hap_traces_per_hh - n_hap_traces):
+                all_traces.append(go.Scatter(x=[], y=[], showlegend=False))
+
         trace_end = len(all_traces)
 
         # Create y-axis labels for this household
@@ -643,6 +758,7 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
             'household_id': household_id,
             'trace_start': trace_start,
             'trace_end': trace_end,
+            'hap_trace_start': hap_trace_start,
             'y_labels': y_labels_with_bottom,
             'y_positions': y_positions_with_bottom,
             'n_members': n_members,
@@ -782,6 +898,12 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
     household_id_to_index = {str(hh_info['household_id']): idx
                              for idx, hh_info in enumerate(household_trace_ranges)}
 
+    # Build haplotype trace range info for JS
+    hap_trace_ranges_js = json.dumps([
+        {'start': hh['hap_trace_start'], 'end': hh['trace_end']}
+        for hh in household_trace_ranges
+    ])
+
     # Add custom JavaScript for keyboard navigation and buttons
     keyboard_nav_script = """
     <script>
@@ -789,6 +911,7 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
     var currentHouseholdIndex = 0;
     var totalHouseholds = """ + str(len(all_buttons)) + """;
     var householdIdToIndex = """ + str(household_id_to_index) + """;
+    var hapTraceRanges = """ + hap_trace_ranges_js + """;
     var updatingFromCode = false;  // Flag to prevent circular updates
 
     // Keyboard navigation
@@ -822,13 +945,22 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
         if (graphDiv && graphDiv.layout && graphDiv.layout.updatemenus) {
             var button = graphDiv.layout.updatemenus[0].buttons[index];
             if (button && button.args) {
+                // Apply haplotype checkbox state to visibility
+                var vis = button.args[0].visible.slice();
+                var showHap = document.getElementById('hapCheckbox');
+                if (showHap && !showHap.checked) {
+                    var range = hapTraceRanges[index];
+                    for (var j = range.start; j < range.end; j++) {
+                        vis[j] = false;
+                    }
+                }
                 // Update both the plot and the dropdown's active state
                 Plotly.relayout(graphDiv, {
                     'updatemenus[0].active': index
                 }).then(function() {
                     return Plotly.relayout(graphDiv, button.args[1]);
                 }).then(function() {
-                    return Plotly.restyle(graphDiv, button.args[0]);
+                    return Plotly.restyle(graphDiv, {visible: vis});
                 }).then(function() {
                     updatingFromCode = false;  // Clear flag after update completes
                     updateNavigationButtons();
@@ -847,6 +979,19 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
         if (counterSpan) {
             counterSpan.textContent = (currentHouseholdIndex + 1) + ' / ' + totalHouseholds;
         }
+    }
+
+    function toggleHaplotypes(checked) {
+        var graphDiv = document.querySelector('.plotly-graph-div');
+        if (!graphDiv) return;
+        var range = hapTraceRanges[currentHouseholdIndex];
+        var indices = [];
+        var vis = [];
+        for (var j = range.start; j < range.end; j++) {
+            indices.push(j);
+            vis.push(checked);
+        }
+        Plotly.restyle(graphDiv, {visible: vis}, indices);
     }
 
     // Extract household ID from title string
@@ -896,7 +1041,10 @@ def create_interactive_viewer(site='nagongera', output_file='docs/index.html', i
                     <span id="hhCounter" style="font-size: 14px; min-width: 60px; text-align: center;">1 / ${totalHouseholds}</span>
                     <button id="nextBtn" onclick="nextHousehold()" style="padding: 5px 15px; cursor: pointer; font-size: 14px;">Next →</button>
                 </div>
-                <div style="font-size: 11px; color: #666; margin-top: 5px; text-align: center;">Use ← → arrow keys</div>
+                <div style="font-size: 11px; color: #666; margin-top: 5px; text-align: center;">Use ← → arrow keys</div>""" + ("""
+                <div style="margin-top: 6px; text-align: center;">
+                    <label style="font-size: 12px; cursor: pointer;"><input type="checkbox" id="hapCheckbox" checked onchange="toggleHaplotypes(this.checked)"> Show haplotypes</label>
+                </div>""" if is_prism2 else "") + """
             `;
             graphDiv.parentNode.insertBefore(navDiv, graphDiv);
             updateNavigationButtons();
