@@ -11,8 +11,8 @@ Interactive web-based visualization of household-level malaria surveillance data
 This project provides an interactive, web-based viewer for exploring malaria infection patterns within households across three transmission intensity sites in Uganda:
 
 - **Nagongera** - High transmission (Tororo district) - 105 households
-- **Walukuba** - Medium transmission (Jinja district) - 99 households
-- **Kihihi** - Low transmission (Kanungu district) - 101 households
+- **Kihihi** - Medium transmission (Kanungu district) - 101 households
+- **Walukuba** - Low transmission (Jinja district) - 99 households
 
 The visualization displays longitudinal test results for all members of multi-person households, with each row representing one individual. Users can navigate between households using a dropdown menu, Previous/Next buttons, or arrow keys. Households are sorted by total number of microscopy-positive observations.
 

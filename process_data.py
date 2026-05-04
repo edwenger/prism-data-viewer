@@ -72,8 +72,8 @@ def process_prism_data(data_dir='data', output_dir='data'):
     # Define sites and their transmission characteristics
     SITES = {
         'Nagongera': 'high transmission (Tororo district)',
-        'Walukuba': 'medium transmission (Jinja district)',
-        'Kihihi': 'low transmission (Kanungu district)'
+        'Kihihi': 'medium transmission (Kanungu district)',
+        'Walukuba': 'low transmission (Jinja district)'
     }
 
     print(f"\nTotal households across all sites: {households['Household_Id'].nunique()}")
